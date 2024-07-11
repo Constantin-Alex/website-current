@@ -1,0 +1,148 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+import Hero from "../components/Hero.astro";
+import { Icon } from 'astro-icon/components';
+---
+
+
+<MainLayout title="Chassis Autonomy - Contact">
+  <Hero title="Contact Us" image="/website-current/images/contact/hero.png"/>
+
+  <div class="contact-area">
+  <form class="contact-form">
+      <h2 class="title">Send us your enquiry</h2>
+      <div class="input">
+        <label for="Name">Name</label>
+        <input name="Name" type="text" placeholder="Name" required/>
+      </div>
+      <div class="input">
+        <label for="Email">Email</label>
+        <input name="Email" type="email" placeholder="Email" required/>
+      </div>
+      <div class="input">
+        <label for="Phone">Phone</label>
+        <input name="Phone" type="tel" placeholder="Phone"/>
+      </div>
+      <div class="input">
+        <label for="Department">Department</label>
+        <select name="Department" id="department" required>
+          <option value="Sales">Sales</option>
+          <option value="Other">Other</option>
+        </select>
+      </div>
+      <div class="input">
+        <label for="Message">Message</label>
+        <textarea name="Message" id="message" placeholder="Message" rows=5 required/>
+      </div>
+      <button class="submit">Send Message <Icon name="akar-icons:paper-airplane" class="icon" /></button>
+    </form>
+    <div class="addresses">
+      <div class="content">
+        <h2 class="title">Addresses</h2>
+        <p class="address">Chassis Autonomy SBA AB Gunnar W Anderssons Passage 32, 461 53 Trollhättan, Sweden</p>
+        <p class="address">Chassis Autonomy Limited London United Kingdom</p>
+      </div>
+    </div>
+  </div>
+  <style>
+  .contact-area {
+    display: flex;
+    width: 100%;
+    min-height: 70vh;
+  }
+
+  .contact-form {
+    padding-block: 5vh;
+    min-width: 60%;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    margin-block: auto;
+    gap: 2vh;
+  }
+  
+  .contact-form > .title {
+    margin-bottom: 5vh;
+  }
+
+  .input {
+    display: flex;
+    flex-flow: column;
+    width: 50%;
+  }
+
+  .input > label {
+    padding-left: 1vw;
+    margin-bottom: 0.5vh;
+  }
+
+  .input > select,
+  .input > textarea,
+  .input > input {
+    border: none;
+    border-radius: 10px;
+    border-bottom: 2px solid var(--primary);
+    background-color: rgba(69,93,255, 0.7);
+    padding-block: 1vh;
+    padding-inline: 1vw;
+    color: var(--background);
+  }
+
+  .input > textarea::placeholder,
+  .input > input::placeholder {
+    color: var(--background);
+    font-weight: bold;
+  }
+
+
+  .input > select { 
+    color: var(--background);
+  }
+
+  .submit {
+    background: none;
+    border: none;
+    padding-block: 1vh;
+    padding-inline: 1vw;
+    border: 3px solid var(--primary);
+    border-radius: 20px;
+    color: var(--primary);
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    font-weight: bold;
+  }
+
+  .icon {
+    margin-inline: auto;
+  }
+
+  .submit:hover {
+    background-color: var(--primary);
+    color: var(--background);
+  }
+
+  .addresses {
+    padding-block: 5vh;
+    min-width: 40%;
+    background-color: var(--secondary);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    color: var(--background);
+  }
+  .content {
+    display: flex;
+    flex-flow: column;
+    gap: 2vh;
+  }
+
+  @media screen and (max-width: 1000px) {
+    .contact-area {
+      flex-flow: column;
+      width: 100%;
+    }
+  }
+
+  </style>
+
+</MainLayout>

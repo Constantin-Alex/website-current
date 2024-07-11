@@ -1,0 +1,114 @@
+---
+import Card from "../components/Card.astro";
+import Hero from "../components/Hero.astro";
+import Section from "../components/Section.astro";
+import MainLayout from "../layouts/MainLayout.astro";
+
+
+const values = [
+  {
+    image:"game-icons:magnifying-glass",
+    image_type:"icon",
+    title:"Inclusion",
+    description:"We strive for an inclusive environment where everyone feels comfortable bringing their best self to work."
+  },
+  {
+    image:"game-icons:magnifying-glass",
+    image_type:"icon",
+    title:"Respect",
+    description:""
+  },
+  {
+    image:"fluent:handshake-32-filled",
+    image_type:"icon",
+    title:"Trust",
+    description:"We act in good faith and rely on each other to catch us when we fall."
+  },
+  {
+    image:"mdi:hand-heart-outline",
+    image_type:"icon",
+    title:"Honesty",
+    description:"We openly share our mistakes with each other, they are part of life and it's how we learn and grow."
+  },
+  {
+    image:"game-icons:magnifying-glass",
+    image_type:"icon",
+    title:"Transpacency",
+    description:"Transparency is key to building trust and respect and enabling our people to thrive."
+  },
+  {
+    image:"game-icons:magnifying-glass",
+    image_type:"icon",
+    title:"Accountability",
+    description:"We strive to be aware of situations, take ownership of issues and collaboratively find solutions to continuously make things better."
+  },
+]
+
+const vacancies = [];
+---
+
+<MainLayout title="Chassis Autonomy - Careers">
+  <Hero title="Come work for us!" image="/website-current/images/careers/hero.png"/>
+  <Section>
+    <div class="section">
+      <h1 class="section-title">Our Values</h1>
+      <div class="display values">
+        {values.map((value) => 
+        <Card image={value.image} image_type={value.image_type as "icon" | "image" | undefined} title={value.title} description={value.description}/>
+        )}    
+      </div>
+    </div>
+  </Section>
+  <Section>
+    <div class="section">
+      <h1 class="section-title">Vacancies</h1>
+
+      {vacancies.length ? <div></div> : <div class="no-vacancies">
+        <p class="text">There are no vacancies at this time. Check this page at another date.</p>
+      </div>}      
+
+    </div>
+  </Section>
+
+  <style>
+    .section {
+      padding-top: 3vh;
+      margin-bottom: 3vh;
+      min-height: 250px;
+    }
+
+    .section-title {
+      font-size: 3em;
+      margin-top: 0;
+    }
+    
+    .display {
+      margin-top: 5vh;
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+    }
+
+    .values {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+      grid-gap: 3em; 
+      justify-items: center;
+      align-items: center;
+    }
+
+    @media screen and (max-width: 1400px) {
+      .values {
+        display: flex;
+        flex-flow: column; 
+      }
+    }
+
+    .no-vacancies > .text {
+      margin-top: 5vh;
+      font-size: 2em;
+      /* text-align: center; */
+    }
+  </style>
+</MainLayout>

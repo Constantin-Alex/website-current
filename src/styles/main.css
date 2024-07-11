@@ -1,0 +1,15 @@
+@import "font.css";
+
+:root {
+  --text: #121235;
+  --background: #ffffff;
+  --background-alt: #e2e2e2;
+  --primary: #455dff;
+  --secondary: #2b49ea;
+  --accent: #fdfded;
+}
+
+* {
+  font-family: "Hind";
+  margin: 0;
+}

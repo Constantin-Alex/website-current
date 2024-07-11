@@ -1,0 +1,107 @@
+---
+import Section from './Section.astro';
+
+export interface Spec { 
+  title: string;
+  info: string;
+}
+
+interface Props {
+  image: string;
+  name: string;
+  specs: Array<Spec>;
+  background_alt?: boolean;
+}
+
+const {image, name, specs, background_alt} = Astro.props;
+---
+
+<div class=`section ${background_alt && 'background-alt'}`>
+  <Section>
+    <div class="content">
+      <img src={image} alt="Image" class="image">
+      <div class="text">
+        <h2 class="name">{name}</h2>
+        <div class="specs">
+          {specs.map((spec, index) => <div class={index < specs.length-1 ? 'spec-bordered' : 'spec'}>
+            <p class="spec-title">{spec.title}</p>
+            <p class="spec-info"><Fragment set:html={spec.info}/></p>
+          </div>)}
+        </div>
+      </div>
+    </div>
+  </Section>
+</div>
+
+<style>
+.content {
+  margin-inline: 10vw; 
+  display: flex;
+  padding-block: 5vh;
+}
+
+.background-alt {
+  background-color: var(--background-alt);
+}
+
+.image {
+  width: 40%;
+  object-fit: cover;
+}
+
+.text {
+  display: flex;
+  flex-flow: column;
+  gap: 1em;
+}
+
+.name {
+  font-size: 3em;
+}
+
+.specs {
+  display: flex;
+  flex-flow: column;
+}
+
+.spec {
+  display: grid;
+  grid-template-columns: 2fr 5fr;
+  align-items: center;
+  font-size: 1.2em;
+  gap: 1.5em;
+  padding-inline: 1em;
+  padding-block: 1vh;
+}
+
+.spec-bordered {
+  display: grid;
+  grid-template-columns: 2fr 5fr;
+  align-items: center;
+  font-size: 1.2em;
+  padding-block: 1vh;
+  gap: 1.5em;
+  border-bottom: 1px solid black;
+  padding-inline: 1em;
+}
+
+.spec-title {
+  grid-column: 1;
+}
+
+.spec-info {
+  grid-column: 2;
+  padding-left: 2vw;
+  border-left: 1px solid black;
+}
+
+@media screen and (max-width: 1150px){
+  .content {
+    flex-flow: column;
+  } 
+
+  .image {
+    width: 100%;
+  }
+}
+</style>

@@ -1,0 +1,23 @@
+{
+  "name": "",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro check && astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/check": "^0.7.0",
+    "@iconify-json/akar-icons": "^1.1.24",
+    "@iconify-json/fluent": "^1.1.58",
+    "@iconify-json/game-icons": "^1.1.9",
+    "@iconify-json/mdi": "^1.1.67",
+    "astro": "^4.11.3",
+    "astro-icon": "^1.1.0",
+    "normalize.css": "^8.0.1",
+    "typescript": "^5.5.2"
+  }
+}

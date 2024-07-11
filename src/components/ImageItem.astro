@@ -1,0 +1,27 @@
+---
+interface Props {
+  image: string;
+  url: string;
+}
+
+const {image, url} = Astro.props;
+---
+
+<a href={url} class="link" target="_blank">
+  <img src={image} alt="Image" class="image" >
+</a>
+
+<style>
+
+.image {
+  width: 300px;
+
+  filter: grayscale(100%); 
+  transition: all 0.3s ease-in-out;
+}
+
+.image:hover {
+  filter: grayscale(0);
+}
+
+</style>

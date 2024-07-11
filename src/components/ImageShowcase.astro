@@ -1,0 +1,78 @@
+---
+interface Props {
+  image: string;
+  title: string;
+  description: string;
+  link?: string;
+}
+
+const {image, title, description, link} = Astro.props;
+---
+
+<a class="content" href={link} target="_blank">
+  <img src={image} alt="Image" class="image">
+  <div class="text-content">
+    <h3 class="title">{title}</h3>
+    <p class="description">{description}</p>
+  </div>
+</a>
+
+<style>
+.content {
+  display: block;
+  border-radius: 50px;
+  width: 400px;
+  height: 400px;
+  overflow: hidden;
+  position: relative;
+}
+
+.image {
+  width: inherit;
+  height: inherit;
+  object-fit: cover;
+  border-bottom: 1px solid black;
+  position: absolute;
+  object-position: ;
+}
+
+.text-content {
+  padding-bottom: 1em;
+  padding-inline: 1em;
+  height: 50px;
+  position: absolute;
+  bottom: 0px;
+  background-color: rgba(0,0,0, 0.5);
+  color: var(--background);
+  transition: all 0.3s ease-in;
+  display: flex;
+  flex-flow: column;
+  overflow: hidden;
+}
+
+.title {
+  font-size: 1.5em;
+  padding-top: 20px;
+  /* margin-top: 20px; */
+  margin-top: auto;
+  z-index: 5;
+  transition: all 0.3s ease-in;
+}
+
+.description {
+  opacity: 0;
+  transition: all 0.3s ease-in;
+}
+
+.content:hover .text-content {
+  height: 100%;
+}
+
+.content:hover .title {
+}
+
+.content:hover .description {
+  opacity: 1;
+  margin-bottom: 20px;
+}
+</style>

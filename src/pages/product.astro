@@ -1,0 +1,20 @@
+---
+import Hero from "../components/Hero.astro";
+import Specifications, {type Spec} from "../components/Specifications.astro";
+import MainLayout from "../layouts/MainLayout.astro";
+
+const specs: Spec[] = [
+  {title: "Voltage", info: "12V, 24V and 48V"},
+  {title: "UN ECE vehicle categories", info: "M1, M2, N1, N2 (up to 5000 kg GVM)"},
+  {title: "Force capacity", info: "22.5 kN"},
+  {title: "Designed for", info: "SAE J3016 Level 4 and 5 applications"},
+  {title: "Designed to exceed", info: "ASIL-D ISO 26262 Road vehicles - Functional safety"},
+{title: "Meets", info: "ISO 21434 Road vehicles - Cybersecurity engineering<br/> UNECE R155 Cyber security and cyber security management system<br/> UNECE R156 Software update and software update management system<br/> ASPICE L3"}
+]
+---
+
+<MainLayout title="Chassis Autonomy - Product">
+  <Hero title="Steer-By-Wire" image="/website-current/images/product/hero.png"/>
+
+  <Specifications image="/website-current/images/product/hero.png" name="CS1 System Specifications" specs={specs} background_alt />
+</MainLayout>
