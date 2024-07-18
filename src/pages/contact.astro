@@ -1,148 +1,175 @@
 ---
+import {Icon} from 'astro-icon/components';
+
+import Section from "../components/Section.astro";
 import MainLayout from "../layouts/MainLayout.astro";
-import Hero from "../components/Hero.astro";
-import { Icon } from 'astro-icon/components';
 ---
 
 
 <MainLayout title="Chassis Autonomy - Contact">
-  <Hero title="Contact Us" image="/website-current/images/contact/hero.png"/>
-
-  <div class="contact-area">
-  <form class="contact-form">
-      <h2 class="title">Send us your enquiry</h2>
-      <div class="input">
-        <label for="Name">Name</label>
-        <input name="Name" type="text" placeholder="Name" required/>
+  <div class="section">
+    <Section>
+      <div class="section-content">
+        <div class="section-left">
+          <h2 class="section-title">Contact us</h2>
+          <div class="locations">
+            <div class="location">
+              <h3 class="title">Trollhättan</h3>
+              <p class="address">Chassis Autonomy SBA AB Gunnar W Anderssons Passage 32, 461 53 Trollhättan, Sweden</p>
+            </div>
+            <div class="location">
+              <h3 class="title">London</h3>
+              <p class="address">Chassis Autonomy Limited London, United Kingdom</p>
+            </div>
+          </div>
+        </div>
+        <div class="section-right">
+          <form class="form" id="contact-form">
+            <div class="form-content">
+              <div class="form-header">
+                <h4 class="form-title">Contact form</h4>
+                <p class="info">* Required</p>
+              </div>
+              <div class="form-item">
+                <label for="name" class="form-label">Name *</label>
+                <input class="input" type="text" name="name" placeholder="John Doe">
+              </div>
+              <div class="form-item">
+                <label for="email" class="form-label">Email *</label>
+                <input class="input" type="email" name="email" placeholder="yourname@email.com">
+              </div>
+              <div class="form-item">
+                <label for="phone" class="form-label">Phone Number </label>
+                <input class="input" type="tel" name="phone" placeholder="07999999999">
+              </div>
+              <div class="form-item">
+                <label for="message" class="form-label">Message *</label>
+                <textarea class="input" name="message" placeholder="Your message here" rows="4"/>
+              </div>
+              <button type="submit" class="submit" for="contact-form">Submit <Icon name="akar-icons:paper-airplane" /></button>
+            </div>
+          </form>
       </div>
-      <div class="input">
-        <label for="Email">Email</label>
-        <input name="Email" type="email" placeholder="Email" required/>
-      </div>
-      <div class="input">
-        <label for="Phone">Phone</label>
-        <input name="Phone" type="tel" placeholder="Phone"/>
-      </div>
-      <div class="input">
-        <label for="Department">Department</label>
-        <select name="Department" id="department" required>
-          <option value="Sales">Sales</option>
-          <option value="Other">Other</option>
-        </select>
-      </div>
-      <div class="input">
-        <label for="Message">Message</label>
-        <textarea name="Message" id="message" placeholder="Message" rows=5 required/>
-      </div>
-      <button class="submit">Send Message <Icon name="akar-icons:paper-airplane" class="icon" /></button>
-    </form>
-    <div class="addresses">
-      <div class="content">
-        <h2 class="title">Addresses</h2>
-        <p class="address">Chassis Autonomy SBA AB Gunnar W Anderssons Passage 32, 461 53 Trollhättan, Sweden</p>
-        <p class="address">Chassis Autonomy Limited London United Kingdom</p>
-      </div>
-    </div>
+    </Section>
   </div>
+
   <style>
-  .contact-area {
-    display: flex;
-    width: 100%;
-    min-height: 70vh;
+  .section {
+    margin-top: 75px;
+    height: calc(100vh - 75px);
   }
 
-  .contact-form {
-    padding-block: 5vh;
-    min-width: 60%;
+  .section-content {
+    display: flex;
+    align-items: center;
+    height: calc(100vh - 75px);
+  }
+
+  .section-left {
+    height: calc(100vh - 75px);
     display: flex;
     flex-flow: column;
-    align-items: center;
-    margin-block: auto;
-    gap: 2vh;
+    gap: 3vh;
+    justify-content: center;
+    width: 40%
+  }
+
+  .locations {
+    display: flex;
+    justify-content: space-between;
   }
   
-  .contact-form > .title {
-    margin-bottom: 5vh;
+  .location {
+    width: 300px;
+  }
+
+  .title {
+    margin-bottom: 2vh;
+  }
+
+  .section-right { 
+    width: 100%;
+    min-height: 500px;
+    height: calc(100vh - 75px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .form {
+    min-width: 500px;
+    width: 60%;
+    min-height: 60%;
+    background-color: var(--background-alt);
+    border-radius: 10px;
+  }
+
+  .form-content {
+    padding: 20px;
+    
+  }
+
+  .form-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 3vh;
+  }
+
+  .form-item {
+    display: flex;
+    flex-flow: column;
+    margin-bottom: 1.5vh;
   }
 
   .input {
-    display: flex;
-    flex-flow: column;
-    width: 50%;
-  }
-
-  .input > label {
-    padding-left: 1vw;
-    margin-bottom: 0.5vh;
-  }
-
-  .input > select,
-  .input > textarea,
-  .input > input {
-    border: none;
-    border-radius: 10px;
-    border-bottom: 2px solid var(--primary);
-    background-color: rgba(69,93,255, 0.7);
-    padding-block: 1vh;
-    padding-inline: 1vw;
-    color: var(--background);
-  }
-
-  .input > textarea::placeholder,
-  .input > input::placeholder {
-    color: var(--background);
-    font-weight: bold;
-  }
-
-
-  .input > select { 
-    color: var(--background);
+    border: 1px solid rgba(30, 30, 30, 0.5);
+    border-radius: 5px;
+    padding: 5px;
+    background-color: var(--background-alt);
   }
 
   .submit {
-    background: none;
-    border: none;
-    padding-block: 1vh;
-    padding-inline: 1vw;
-    border: 3px solid var(--primary);
-    border-radius: 20px;
+    border: 1px solid var(--primary);
+    border-radius: 5px;
     color: var(--primary);
+    padding: 10px;
+    background-color: transparent;
     cursor: pointer;
     transition: all 0.3s ease-in-out;
-    font-weight: bold;
-  }
+    display: flex;
+    gap: 0.5vw;
 
-  .icon {
-    margin-inline: auto;
   }
-
+  
   .submit:hover {
+    color: var(--background);
     background-color: var(--primary);
-    color: var(--background);
-  }
+  } 
 
-  .addresses {
-    padding-block: 5vh;
-    min-width: 40%;
-    background-color: var(--secondary);
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    color: var(--background);
-  }
-  .content {
-    display: flex;
-    flex-flow: column;
-    gap: 2vh;
-  }
-
-  @media screen and (max-width: 1000px) {
-    .contact-area {
+  @media screen and (max-width: 1000px){
+    .section-content {
       flex-flow: column;
+    }
+
+    .section-left {
+      width: 100%;
+      align-items: center;
+    }
+
+    .locations {
+      flex-flow: column;
+      gap: 3vh;
+    }
+
+    .section-right {
+      width: 100%;
+    }
+
+    .form {
+      min-width: 5px;
       width: 100%;
     }
   }
 
   </style>
-
 </MainLayout>

@@ -1,14 +1,15 @@
 ---
 interface Props {
   image: string;
+  image_alt: string;
   url: string;
 }
 
-const {image, url} = Astro.props;
+const {image, image_alt, url} = Astro.props;
 ---
 
 <a href={url} class="link" target="_blank">
-  <img src={image} alt="Image" class="image" >
+  <img src={image} alt={image_alt} class="image" >
 </a>
 
 <style>

@@ -1,76 +1,56 @@
 ---
 import Hero from "../components/Hero.astro";
-import ImageItem from "../components/ImageItem.astro";
-import ImageShowcase from "../components/ImageShowcase.astro";
+import LogoShowcase from "../components/LogoShowcase.astro";
 import Section from "../components/Section.astro";
 import MainLayout from "../layouts/MainLayout.astro";
-
 ---
 
-<MainLayout title="Chassis Autonomy - About Us">
-  <Hero title="About Us" image="/website-current/images/about/hero.png"/>
+<MainLayout title="Chassis Autonomy - About">
+  <Hero title="Unlocking the full potential of autonomy through fail-operational actuation" image="/website-current/images/about/hero.png" image_alt="Hero Image"/>
+<div class="section">
   <Section>
-    <div class="section">
-      <h1 class="section-title">Meet Our Founders</h1>
-      <div class="display">
-        <ImageShowcase title="Peter Johansson" description="A serial innovator and visionary with a career history that includes senior and director leadership roles within global automotive companiesnincluding SAAB, GM, NEVS and Haldex.Peter now leads Chassis Autonomy as Chief Executive Officer, working closely with the senior leadership team in a push towards autonomous mobility." image="/website-current/images/about/Peter.png" link="https://www.linkedin.com/in/peter-johansson-/"/> 
-        <ImageShowcase title="Thomas Li" description="A former senior F1 Race Engineer, who is highly experienced in the leadership of engineering teams and the development of advanced automotive engineering systems.Thomas leads Chassis Autonomy as Chief Technology Officer ensuring the correct focus between product development and wider business growth activities." image="/website-current/images/about/ThomasLi.jpg" link="https://www.linkedin.com/in/thomas-li--/"/> 
-      </div>
+    <div class="section-content">
+      <h2 class="section-title">Our partners</h2>
+        <div class="list">
+          <LogoShowcase image="/website-current/images/about/cae-value-logo.png" image_alt="CAE Logo" url="https://www.caevalue.com/"/>
+          <LogoShowcase image="/website-current/images/about/vi-grade-logo.png" image_alt="VI Grade" url="https://www.vi-grade.com/"/>
+          <LogoShowcase image="/website-current/images/about/kongsberg-logo.png" image_alt="Kongsberg Logo" url="https://www.kongsbergautomotive.com/"/>
+          <LogoShowcase image="/website-current/images/about/surrey-logo.png" image_alt="University of Surrey Logo" url="https://www.surrey.ac.uk/"/>
+        </div>
     </div>
   </Section>
+</div>
+<div class="section">
   <Section>
-    <div class="section">
-      <h1 class="section-title">Our Partners</h1>
-      <div class="display">
-        <ImageItem image="/website-current/images/about/cae-value-logo.png" url="https://www.caevalue.com/"/>
-        <ImageItem image="/website-current/images/about/vi-grade-logo.png" url="https://www.vi-grade.com/"/>
-        <ImageItem image="/website-current/images/about/kongsberg-logo.png" url="https://www.kongsbergautomotive.com/"/>
-        <ImageItem image="/website-current/images/about/surrey-logo.png" url="https://www.surrey.ac.uk/"/>
-      </div>
+    <div class="section-content">
+      <h2 class="section-title">Supported by</h2>
+        <div class="list">
+          <LogoShowcase image="/website-current/images/about/Innovate-UK-Logo.jpeg" image_alt="Innovate UK Logo" url="https://www.ukri.org/councils/innovate-uk/"/>
+          <LogoShowcase image="/website-current/images/about/EU-Logo.png" image_alt="European Union Logo" url="https://eic.ec.europa.eu/eic-funding-opportunities/eic-accelerator_en"/>
+        </div>
     </div>
   </Section>
-  <Section>
-    <div class="section">
-      <h1 class="section-title">Supported By</h1>
-      <div class="display">
-        <ImageItem image="/website-current/images/about/Innovate-UK-Logo.jpeg" url="https://www.ukri.org/councils/innovate-uk/"/>
-        <ImageItem image="/website-current/images/about/EU-Logo.png" url="https://eic.ec.europa.eu/eic-funding-opportunities/eic-accelerator_en"/>
-      </div>
-    </div>
-  </Section>
-
+  </div>
 
   <style>
-    .section {
-      padding-top: 3vh;
-      margin-bottom: 3vh;
-      min-height: 250px;
-    }
+  .section {
+    min-height: 40vh;
+    padding-bottom: 3vh;
+  }
 
-    .section-title {
-      font-size: 3em;
-      margin-top: 0;
-    }
+  .list {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+  }
 
-    .display {
-      margin-top: 5vh;
-      display: flex;
-      justify-content: space-evenly;
-      align-items: center;
+  @media screen and (max-width: 1000px) {
+    .list {
+      margin-top: 2vh;
+      flex-flow: column;
+      gap: 3vh;
     }
-
-    .display-normal {
-      font-size: 1.5em;
-    }
-    
-
-    @media screen and (max-width: 1000px){
-      .display {
-        flex-flow: column;
-        gap: 10vh;
-      }
-      
-    }
+  }
 
   </style>
 </MainLayout>

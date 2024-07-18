@@ -1,7 +1,9 @@
 ---
 import Hero from "../components/Hero.astro";
-import Specifications, {type Spec} from "../components/Specifications.astro";
+import Section from "../components/Section.astro";
+import Specifications from "../components/Specifications.astro";
 import MainLayout from "../layouts/MainLayout.astro";
+import type { Spec } from "../types/Spec";
 
 const specs: Spec[] = [
   {title: "Voltage", info: "12V, 24V and 48V"},
@@ -14,7 +16,14 @@ const specs: Spec[] = [
 ---
 
 <MainLayout title="Chassis Autonomy - Product">
-  <Hero title="Steer-By-Wire" image="/website-current/images/product/hero.png"/>
-
-  <Specifications image="/website-current/images/product/hero.png" name="CS1 System Specifications" specs={specs} background_alt />
+  <Hero title="Unlocking the full potential of autonomy through fail-operational actuation" image="/website-current/images/product/hero.png" image_alt="Hero Image"/>
+  <div class="section">
+    <Section>
+      <div class="section-content">
+        <h2 class="section-title">CS1 System Specifications</h2>
+        <Specifications image="/website-current/images/product/hero.png" name="CS1 System Specifications" specs={specs}/>
+      </div>
+    </Section>
+  </div> 
 </MainLayout>
+
