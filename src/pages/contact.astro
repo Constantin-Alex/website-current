@@ -56,13 +56,13 @@ import MainLayout from "../layouts/MainLayout.astro";
   <style>
   .section {
     margin-top: 75px;
-    height: calc(100vh - 75px);
+    min-height: calc(100vh - 75px);
   }
 
   .section-content {
     display: flex;
     align-items: center;
-    height: calc(100vh - 75px);
+    min-height: calc(100vh - 75px);
   }
 
   .section-left {
@@ -153,6 +153,8 @@ import MainLayout from "../layouts/MainLayout.astro";
 
     .section-left {
       width: 100%;
+      min-height: 5px;
+      height: max-content;
       align-items: center;
     }
 

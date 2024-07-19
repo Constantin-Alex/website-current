@@ -1,13 +1,14 @@
 ---
-import Hero from "../components/Hero.astro";
 import LogoShowcase from "../components/LogoShowcase.astro";
 import Section from "../components/Section.astro";
 import MainLayout from "../layouts/MainLayout.astro";
 ---
 
 <MainLayout title="Chassis Autonomy - About">
-  <Hero title="Unlocking the full potential of autonomy through fail-operational actuation" image="/website-current/images/about/hero.png" image_alt="Hero Image"/>
-<div class="section">
+    <Section>
+      <h1 class="title">About us</h1>
+    </Section>
+  <div class="section">
   <Section>
     <div class="section-content">
       <h2 class="section-title">Our partners</h2>
@@ -38,6 +39,7 @@ import MainLayout from "../layouts/MainLayout.astro";
     padding-bottom: 3vh;
   }
 
+
   .list {
     display: flex;
     justify-content: space-evenly;
@@ -45,6 +47,10 @@ import MainLayout from "../layouts/MainLayout.astro";
   }
 
   @media screen and (max-width: 1000px) {
+    .section-title {
+      margin-bottom: 5vh;
+    }
+  
     .list {
       margin-top: 2vh;
       flex-flow: column;

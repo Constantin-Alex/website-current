@@ -4,12 +4,11 @@ import Section from './Section.astro';
 
 interface Props {
   image: string;
-  name: string;
   specs: Array<Spec>;
   background_alt?: boolean;
 }
 
-const {image, name, specs, background_alt} = Astro.props;
+const {image, specs, background_alt} = Astro.props;
 ---
 
 <div class=`section ${background_alt && 'background-alt'}`>
@@ -76,6 +75,7 @@ const {image, name, specs, background_alt} = Astro.props;
 
 .spec-title {
   grid-column: 1;
+  min-width: 100px;
 }
 
 .spec-info {
