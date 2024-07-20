@@ -1,13 +1,30 @@
 ---
 import LogoShowcase from "../components/LogoShowcase.astro";
+import PersonShowcase from "../components/PersonShowcase.astro";
 import Section from "../components/Section.astro";
+import Separator from "../components/Separator.astro";
 import MainLayout from "../layouts/MainLayout.astro";
 ---
 
 <MainLayout title="Chassis Autonomy - About">
+  <div class="title-section">
     <Section>
       <h1 class="title">About us</h1>
+      <Separator/>
     </Section>
+  </div>
+  <div class="section">
+    <Section>
+      <div class="section-content">
+        <h2 class="section-title">Meet our founders</h2>
+        <div class="list">
+          <PersonShowcase image="/website-current/images/about/Peter.png" image_alt="Peter Johansson" name="Peter Johansson" titles={["Co-founder" , "CEO"]} description="A serial innovator and visionary with a career history that includes senior and director leadership roles within global automotive companies including SAAB, GM, NEVS and Haldex. Peter now leads Chassis Autonomy as Chief Executive Officer, working closely with the senior leadership team in a push towards autonomous mobility." url="https://www.linkedin.com/in/peter-johansson-/"/>
+          <PersonShowcase image="/website-current/images/about/ThomasLi.jpg" image_alt="Thomas Li" name="Thomas Li" titles={["Co-founder" , "CTO"]} description="A former senior F1 Race Engineer, who is highly experienced in the leadership of engineering teams and the development of advanced automotive engineering systems. Thomas leads Chassis Autonomy as Chief Technology Officer ensuring the correct focus between product development and wider business growth activities." url="https://www.linkedin.com/in/thomas-li--/"/>
+        </div>
+      </div>
+    </Section>
+  </div>
+
   <div class="section">
   <Section>
     <div class="section-content">
@@ -39,6 +56,9 @@ import MainLayout from "../layouts/MainLayout.astro";
     padding-bottom: 3vh;
   }
 
+  .title-section {
+    margin-bottom: 5vh;
+  }
 
   .list {
     display: flex;
@@ -50,7 +70,8 @@ import MainLayout from "../layouts/MainLayout.astro";
     .section-title {
       margin-bottom: 5vh;
     }
-  
+
+
     .list {
       margin-top: 2vh;
       flex-flow: column;

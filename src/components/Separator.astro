@@ -1,0 +1,26 @@
+---
+interface Props {
+  vertical?: boolean;
+}
+
+const { vertical } = Astro.props;
+---
+<div class={`separator ${vertical ? 'vertical' : 'horizontal'}`}></div>
+
+<style>
+.separator {
+  background-color: var(--text);
+}
+
+.horizontal {
+  height: 1px;
+  width: 100%;
+  mask-image: linear-gradient(to right, transparent 0%, rgba(0,0,0,1) 30%, rgba(0,0,0,1) 70%, transparent 100%);
+}
+
+.vertical {
+  width: 1px;
+  height: 100%;
+  mask-image: linear-gradient(to bottom, transparent 0%, rgba(0,0,0,1) 30%, rgba(0,0,0,1) 70%, transparent 100%);
+}
+</style>

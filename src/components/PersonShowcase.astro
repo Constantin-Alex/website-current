@@ -1,0 +1,67 @@
+---
+import Separator from './Separator.astro';
+
+interface Props {
+  image: string;
+  image_alt: string;
+  name: string;
+  titles: string[];
+  description: string;
+  url: string;
+}
+
+const {image, image_alt, name, titles, description, url} = Astro.props;
+const title = titles.join(" | ");
+---
+
+<a href={url} class="person">
+  <div class="portrait-wrapper">
+    <img src={image} alt={image_alt} class="portrait">
+  </div>
+  <div class="separator">
+    <Separator vertical />
+  </div>
+  <div class="text-content">
+    <h3 class="name">{name}</h3>
+    <h4 class="title">{title}</h4>
+    <p class="description">{description}</p>
+  </div>
+</a>
+
+<style>
+.person {
+  display: flex;
+  gap: 1vw;
+  text-decoration: none;
+  color: var(--text);
+}
+
+.portrait-wrapper {
+  height: 300px;
+  min-width: 300px;
+  max-width: 300px;
+  border-radius: 20px;
+  overflow: hidden;
+}
+.portrait {
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
+  transition: all 0.3s ease-in-out;
+}
+
+
+.portrait:hover {
+  transform: scale(150%);
+}
+
+.title {
+  color: rgb(80, 80, 80);
+}
+
+@media screen and (max-width: 1000px) {
+  .person {
+    flex-flow: column;
+  }
+}
+</style>
