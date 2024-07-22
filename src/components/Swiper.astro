@@ -24,6 +24,8 @@ import { Icon } from "astro-icon/components";
   display: flex;
   gap: 2vw;
   transition: transform 0.3s ease-in-out;
+  overflow-x: scroll;
+  scroll-behavior: smooth;
 }
 
 .swiper-button-next,
@@ -94,27 +96,34 @@ import { Icon } from "astro-icon/components";
     let index = 0;
 
     left_button?.addEventListener('click', () => {
+      const elementWidth = width / elems.length;
+    
+      index = Math.ceil(container.scrollLeft / elementWidth);
+
+
       index--;
 
-      const elementLength = width / elems.length;
-      const elements_count = container.getBoundingClientRect().width / elementLength;
+      const elements_count = container.getBoundingClientRect().width / elementWidth;
       if(index < 0)
         index += (elems.length - Math.floor(elements_count) + 1);
       
-      console.log(index, elementLength, index * elementLength, elements_count, Math.floor(elements_count));
-      container.style.transform = `translateX(-${index * elementLength}px)`;
+      console.log(index, elementWidth, index * elementWidth, elements_count, Math.floor(elements_count));
+      
+      container.scrollLeft = index * elementWidth;
     })
 
 
     right_button?.addEventListener('click', () => {
+      const elementWidth = width / elems.length;
+      index = Math.floor(container.scrollLeft / elementWidth);
+      
       index++;
 
-      const elementLength = width / elems.length;
-      const elements_count = container.getBoundingClientRect().width / elementLength;
+      const elements_count = container.getBoundingClientRect().width / elementWidth;
       index = index % (elems.length - Math.floor(elements_count) + 1);
 
-      console.log(index, elementLength, index * elementLength, Math.floor(elements_count));
-      container.style.transform = `translateX(-${index * elementLength}px)`;
+      console.log(index, elementWidth, index * elementWidth, Math.floor(elements_count));
+      container.scrollLeft = index * elementWidth;
     })
 
   }
