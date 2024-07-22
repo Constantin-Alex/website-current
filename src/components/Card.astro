@@ -51,13 +51,19 @@ const {image, image_alt, title, subtitle, description} = Astro.props;
   background-color: rgba(0,0,0, 0.5);
   bottom: 0;
   padding-inline: 1vw;
-  height: 150px;
   transition: all 0.3s ease-in-out;
+  min-height: 175px;
+  max-height: calc(100%-4vh);
   display: flex;
   flex-flow: column;
-  justify-content: end;
+  justify-content: start;
   padding-block: 2vh;
   transform: translateY(2vh);
+  width: calc(100% - 2vw);
+}
+
+.subtitle {
+  color: var(--background-alt);
 }
 
 .description {
@@ -66,7 +72,7 @@ const {image, image_alt, title, subtitle, description} = Astro.props;
 }
 
 .card:hover > .text-content {
-  height: 100%;
+  height: calc(100%-4vh);
   transform: translateY(0);
 }
 

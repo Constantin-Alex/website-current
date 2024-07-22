@@ -1,0 +1,30 @@
+[
+  {
+    "image": "/website-current/images/about/hero.png",
+    "image_alt": "Milestone 1 Image",
+    "subtitle": "July 2023",
+    "title": "KA Investment",
+    "description": "EIC Horizon award"
+  },
+  {
+    "image": "/website-current/images/about/hero.png",
+    "image_alt": "Milestone 2 Image",
+    "subtitle": "December 2022",
+    "title": "EIC Horizon Award",
+    "description": "€2.5m grant with upto €4m in matched equity funding"
+  },
+  {
+    "image": "/website-current/images/about/hero.png",
+    "image_alt": "Milestone 3 Image",
+    "subtitle": "April 2022",
+    "title": "Incorporated in the UK",
+    "description": "Big milestone for the company as we got incorporated in the UK as well"
+  },
+  {
+    "image": "/website-current/images/about/hero.png",
+    "image_alt": "Milestone 4 Image",
+    "subtitle": "October 2021",
+    "title": "Incorporated in Sweden",
+    "description": "The first milestone for ourselves."
+  }
+]

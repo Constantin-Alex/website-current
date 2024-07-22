@@ -6,6 +6,8 @@ import Section from "../components/Section.astro";
 import Separator from "../components/Separator.astro";
 import MainLayout from "../layouts/MainLayout.astro";
 import Swiper from "../components/Swiper.astro";
+
+import milestones from "../content/details/milestones.json";
 ---
 
 <MainLayout title="Chassis Autonomy - About">
@@ -30,18 +32,9 @@ import Swiper from "../components/Swiper.astro";
     <Section>
       <div class="section-content">
         <h2 class="section-title">How we got here</h2>
-        <div class="list">
-          <Swiper>
-            <Card image="/website-current/images/about/hero.png" image_alt="card image" subtitle="2019" title="Test" description="Lorem ipsum donde esta la biblioteca por favor senorita help me please."/>
-            <Card image="/website-current/images/about/hero.png" image_alt="card image" subtitle="2019" title="Test" description="Lorem ipsum donde esta la biblioteca por favor senorita help me please."/>
-            <Card image="/website-current/images/about/hero.png" image_alt="card image" subtitle="2019" title="Test" description="Lorem ipsum donde esta la biblioteca por favor senorita help me please."/>
-            <Card image="/website-current/images/about/hero.png" image_alt="card image" subtitle="2019" title="Test" description="Lorem ipsum donde esta la biblioteca por favor senorita help me please."/>
-            <Card image="/website-current/images/about/hero.png" image_alt="card image" subtitle="2019" title="Test" description="Lorem ipsum donde esta la biblioteca por favor senorita help me please."/>
-            <Card image="/website-current/images/about/hero.png" image_alt="card image" subtitle="2019" title="Test" description="Lorem ipsum donde esta la biblioteca por favor senorita help me please."/>
-            <Card image="/website-current/images/about/hero.png" image_alt="card image" subtitle="2019" title="Test" description="Lorem ipsum donde esta la biblioteca por favor senorita help me please."/>
-            <Card image="/website-current/images/about/hero.png" image_alt="card image" subtitle="2019" title="Test" description="Lorem ipsum donde esta la biblioteca por favor senorita help me please."/>
-          </Swiper>
-        </div>
+        <Swiper>
+          {milestones.map((milestone) => <Card {...milestone} />)}
+        </Swiper>
       </div>
     </Section>
   </div>
@@ -88,11 +81,11 @@ import Swiper from "../components/Swiper.astro";
     overflow: hidden;
   }
 
-  @media screen and (max-width: 1000px) {
-    .section-title {
-      margin-bottom: 5vh;
-    }
+  .section-title {
+    margin-bottom: 5vh;
+  }
 
+  @media screen and (max-width: 1000px) {
 
     .list {
       margin-top: 2vh;

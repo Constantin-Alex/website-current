@@ -56,6 +56,10 @@ import { Icon } from "astro-icon/components";
   cursor: pointer;
 }
 
+.center-content {
+  justify-content: center;
+}
+
 .hidden {
   opacity: 0;
 }
@@ -81,15 +85,18 @@ import { Icon } from "astro-icon/components";
     if(container.getBoundingClientRect().width > width) {
       left_button.classList.add('hidden');
       right_button.classList.add('hidden');
+      container.classList.add('center-content');
     }
 
     document.addEventListener('resize', () => {
       if(container.getBoundingClientRect().width > width) {
         left_button.classList.add('hidden');
         right_button.classList.add('hidden');
+        container.classList.add('center-content');
       } else {
         left_button.classList.remove('hidden');
         right_button.classList.remove('hidden');
+        container.classList.remove('center-content');
       }
     });
 
