@@ -89,6 +89,7 @@ import { Icon } from "astro-icon/components";
     }
 
     document.addEventListener('resize', () => {
+      console.log("detected resize")
       if(container.getBoundingClientRect().width > width) {
         left_button.classList.add('hidden');
         right_button.classList.add('hidden');
@@ -123,13 +124,15 @@ import { Icon } from "astro-icon/components";
     right_button?.addEventListener('click', () => {
       const elementWidth = width / elems.length;
       index = Math.floor(container.scrollLeft / elementWidth);
-      
+
+      if(container.scrollLeft > elementWidth * index) index++;
+
       index++;
 
       const elements_count = container.getBoundingClientRect().width / elementWidth;
       index = index % (elems.length - Math.floor(elements_count) + 1);
 
-      console.log(index, elementWidth, index * elementWidth, Math.floor(elements_count));
+      console.log(index, elementWidth, index * elementWidth, Math.floor(elements_count), elems.length);
       container.scrollLeft = index * elementWidth;
     })
 

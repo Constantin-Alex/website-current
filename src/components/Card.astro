@@ -71,11 +71,13 @@ const {image, image_alt, title, subtitle, description} = Astro.props;
   transition: all 0.3s ease-in-out;
 }
 
+.card:active > .text-content ,
 .card:hover > .text-content {
   height: calc(100%-4vh);
   transform: translateY(0);
 }
 
+.card:active > .text-content > .description ,
 .card:hover > .text-content > .description {
   opacity: 1;
 }
