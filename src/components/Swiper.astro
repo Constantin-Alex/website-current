@@ -1,0 +1,124 @@
+---
+import { Icon } from "astro-icon/components";
+
+---
+
+<div class="swiper">
+  <div id="swiper-wrapper" class="swiper-wrapper">
+    <slot/>
+  </div>
+  <div class="swiper-pagination"></div>
+  
+  <div class="swiper-button-prev swiper-button"><Icon class="swiper-button-icon" name="mdi:keyboard-arrow-left"/> </div>
+  <div class="swiper-button-next swiper-button"><Icon class="swiper-button-icon" name="mdi:keyboard-arrow-right"/></div>
+
+</div>
+
+<style>
+.swiper {
+  position: relative;
+  overflow: hidden;
+}
+
+.swiper-wrapper {
+  display: flex;
+  gap: 2vw;
+  transition: transform 0.3s ease-in-out;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  
+  z-index: 10;
+  font-size: 50px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+  .swiper-button-next {
+  right: 0;
+}
+
+.swiper-button-icon {
+  box-shadow:
+  0px -2.8px 2.2px rgba(0, 0, 0, 0.02),
+  0px -6.7px 5.3px rgba(0, 0, 0, 0.028),
+  0px -12.5px 10px rgba(0, 0, 0, 0.035),
+  0px -22.3px 17.9px rgba(0, 0, 0, 0.042),
+  0px -41.8px 33.4px rgba(0, 0, 0, 0.05),
+  0px -100px 80px rgba(0, 0, 0, 0.07);
+  
+  background-color: var(--background);
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.hidden {
+  opacity: 0;
+}
+
+</style>
+
+<script>
+  function swiper() {
+    const container = document.getElementById('swiper-wrapper');
+    const elems = document.querySelector('.swiper-wrapper')?.children;
+
+    const left_button = document.querySelector('.swiper-button-prev');
+    const right_button = document.querySelector('.swiper-button-next');
+
+
+    if(!elems) return;
+    if(!container) return;
+    if(!left_button) return;
+    if(!right_button) return;
+
+    let width = elems[elems.length - 1].getBoundingClientRect().right - elems[0].getBoundingClientRect().left;
+
+    if(container.getBoundingClientRect().width > width) {
+      left_button.classList.add('hidden');
+      right_button.classList.add('hidden');
+    }
+
+    document.addEventListener('resize', () => {
+      if(container.getBoundingClientRect().width > width) {
+        left_button.classList.add('hidden');
+        right_button.classList.add('hidden');
+      } else {
+        left_button.classList.remove('hidden');
+        right_button.classList.remove('hidden');
+      }
+    });
+
+    let index = 0;
+
+    left_button?.addEventListener('click', () => {
+      index--;
+
+      const elementLength = width / elems.length;
+      const elements_count = container.getBoundingClientRect().width / elementLength;
+      if(index < 0)
+        index += (elems.length - Math.floor(elements_count) + 1);
+      
+      console.log(index, elementLength, index * elementLength, elements_count, Math.floor(elements_count));
+      container.style.transform = `translateX(-${index * elementLength}px)`;
+    })
+
+
+    right_button?.addEventListener('click', () => {
+      index++;
+
+      const elementLength = width / elems.length;
+      const elements_count = container.getBoundingClientRect().width / elementLength;
+      index = index % (elems.length - Math.floor(elements_count) + 1);
+
+      console.log(index, elementLength, index * elementLength, Math.floor(elements_count));
+      container.style.transform = `translateX(-${index * elementLength}px)`;
+    })
+
+  }
+
+  swiper();
+
+</script>
