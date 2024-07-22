@@ -1,4 +1,5 @@
 ---
+import Card from "../components/Card.astro";
 import LogoShowcase from "../components/LogoShowcase.astro";
 import PersonShowcase from "../components/PersonShowcase.astro";
 import Section from "../components/Section.astro";
@@ -24,7 +25,23 @@ import MainLayout from "../layouts/MainLayout.astro";
       </div>
     </Section>
   </div>
-
+  <div class="section">
+    <Section>
+      <div class="section-content">
+        <h2 class="section-title">How we got here</h2>
+        <div class="list">
+          <Card image="/website-current/images/about/hero.png" image_alt="card image" subtitle="2019" title="Test" description="Lorem ipsum donde esta la biblioteca por favor senorita help me please."/>
+          <Card image="/website-current/images/about/hero.png" image_alt="card image" subtitle="2019" title="Test" description="Lorem ipsum donde esta la biblioteca por favor senorita help me please."/>
+          <Card image="/website-current/images/about/hero.png" image_alt="card image" subtitle="2019" title="Test" description="Lorem ipsum donde esta la biblioteca por favor senorita help me please."/>
+          <Card image="/website-current/images/about/hero.png" image_alt="card image" subtitle="2019" title="Test" description="Lorem ipsum donde esta la biblioteca por favor senorita help me please."/>
+          <Card image="/website-current/images/about/hero.png" image_alt="card image" subtitle="2019" title="Test" description="Lorem ipsum donde esta la biblioteca por favor senorita help me please."/>
+          <Card image="/website-current/images/about/hero.png" image_alt="card image" subtitle="2019" title="Test" description="Lorem ipsum donde esta la biblioteca por favor senorita help me please."/>
+          <Card image="/website-current/images/about/hero.png" image_alt="card image" subtitle="2019" title="Test" description="Lorem ipsum donde esta la biblioteca por favor senorita help me please."/>
+          <Card image="/website-current/images/about/hero.png" image_alt="card image" subtitle="2019" title="Test" description="Lorem ipsum donde esta la biblioteca por favor senorita help me please."/>
+        </div>
+      </div>
+    </Section>
+  </div>
   <div class="section">
   <Section>
     <div class="section-content">
@@ -64,6 +81,7 @@ import MainLayout from "../layouts/MainLayout.astro";
     display: flex;
     justify-content: space-evenly;
     align-items: center;
+    gap: 1vw;
   }
 
   @media screen and (max-width: 1000px) {
