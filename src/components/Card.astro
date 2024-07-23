@@ -1,22 +1,26 @@
 ---
+import {Icon} from 'astro-icon/components'
+
 interface Props {
   image: string;
   image_alt: string;
+  image_type?: "image" | "icon"; 
   title: string;
   subtitle?: string;
   description: string;
+  hidden?: boolean;
 }
 
-const {image, image_alt, title, subtitle, description} = Astro.props;
+const {image, image_alt, image_type="image", title, subtitle, description, hidden=true} = Astro.props;
 ---
 
 <div class="card">
-  <img src={image} alt={image_alt} class="card-image">
-  <div class="text-content">
-    <!-- <div class="mask-image"></div> -->
+    {image_type === "image" && <img src={image} alt={image_alt} class="image"/>}
+    {image_type === "icon" && <Icon name={image} class="icon"/>}
+    <div class="text-content">
     <h4 class="subtitle">{subtitle}</h4>
     <h3 class="title">{title}</h3>
-    <p class="description">{description}</p>
+    <p class=`description ${hidden && ""}`>{description}</p>
   </div>
 </div>
 
@@ -27,6 +31,13 @@ const {image, image_alt, title, subtitle, description} = Astro.props;
   min-width: 300px;
   border-radius: 20px;
   overflow: hidden;
+  background-color: var(--background-alt);
+}
+
+.icon {
+  font-size: 10em;
+  height: 200px;
+  width: 100%;
 }
 
 .card-image {
@@ -67,8 +78,11 @@ const {image, image_alt, title, subtitle, description} = Astro.props;
 }
 
 .description {
-  opacity: 0;
   transition: all 0.3s ease-in-out;
+}
+
+.hidden {
+  opacity: 0;
 }
 
 .card:active > .text-content ,
@@ -77,8 +91,8 @@ const {image, image_alt, title, subtitle, description} = Astro.props;
   transform: translateY(0);
 }
 
-.card:active > .text-content > .description ,
-.card:hover > .text-content > .description {
+.card:active > .text-content > .hidden,
+.card:hover > .text-content > .hidden {
   opacity: 1;
 }
 

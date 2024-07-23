@@ -1,8 +1,51 @@
 ---
+import Section from "../components/Section.astro";
+import Separator from "../components/Separator.astro";
+import Swiper from "../components/Swiper.astro";
 import MainLayout from "../layouts/MainLayout.astro";
 
+import values from "../content/details/values.json";
+import Card from "../components/Card.astro";
 
+const vacancies = [];
 ---
 
 <MainLayout title="Chassis Autonomy - Careers">
+  <div class="title-section">
+    <Section>
+      <h1 class="title">Come work with us</h1>
+    </Section>
+    <Separator />
+  </div>
+  <div class="section">
+    <Section>
+      <h2 class="section-title">Our values</h2>
+      <Swiper>
+        {values.map((value) => 
+        <Card image={value.image} image_alt={value.title} image_type={value.image_type as "icon" | "image" | undefined} title={value.title} description={value.description}/>
+        )}
+      </Swiper>
+    </Section>
+  </div>
+  <div class="section">
+    <Section>
+      <h2 class="section-title">Vacancies</h2>
+      { vacancies.length === 0 && <h4 style={{fontWeight: "normal"}}>No vacancies at this moment. Come back later.</h4> } 
+    </Section>
+  </div>
+<style>
+  .title-section {
+    margin-bottom: 5vh;
+  }
+
+  .section {
+    min-height: 40vh;
+    padding-bottom: 3vh;
+  }
+
+  .section-title {
+    margin-bottom: 5vh;
+  }
+
+</style>
 </MainLayout>

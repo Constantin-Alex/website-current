@@ -1,0 +1,38 @@
+[
+  {
+    "image": "game-icons:magnifying-glass",
+    "image_type": "icon",
+    "title": "Inclusion",
+    "description": "We strive for an inclusive environment where everyone feels comfortable bringing their best self to work."
+  },
+  {
+    "image": "game-icons:magnifying-glass",
+    "image_type": "icon",
+    "title": "Respect",
+    "description": ""
+  },
+  {
+    "image": "fluent:handshake-32-filled",
+    "image_type": "icon",
+    "title": "Trust",
+    "description": "We act in good faith and rely on each other to catch us when we fall."
+  },
+  {
+    "image": "mdi:hand-heart-outline",
+    "image_type": "icon",
+    "title": "Honesty",
+    "description": "We openly share our mistakes with each other, they are part of life and it's how we learn and grow."
+  },
+  {
+    "image": "game-icons:magnifying-glass",
+    "image_type": "icon",
+    "title": "Transpacency",
+    "description": "Transparency is key to building trust and respect and enabling our people to thrive."
+  },
+  {
+    "image": "game-icons:magnifying-glass",
+    "image_type": "icon",
+    "title": "Accountability",
+    "description": "We strive to be aware of situations, take ownership of issues and collaboratively find solutions to continuously make things better."
+  }
+]
