@@ -3,19 +3,81 @@ import Section from "../components/Section.astro";
 import Specifications from "../components/Specifications.astro";
 import MainLayout from "../layouts/MainLayout.astro";
 import specs from '../content/details/cs1-specs.json';
+import Separator from "../components/Separator.astro";
+import { Icon } from "astro-icon/components";
 ---
 
 <MainLayout title="Chassis Autonomy - Product">
-  <Section>
-    <h1 class="title">Steer-by-wire</h1>
+  <div class="title-section">
+    <Section>
+      <h1 class="title">Steer-by-wire</h1>
+    <Separator />
   </Section>
+  </div>
+  <div class="section">
+    <Section>
+      <h2 class="section-title">Unique selling point</h2>
+      <div class="bullet-points">
+        <div class="bullet-point">
+          <Icon name="mdi:checkbox-marked-circle-outline" class="bullet-point-icon" />
+          <h3 class="bullet-point-title">Rack-and-pinion free</h3>
+          <p class="description">This is a placeholder text to showcase the way the description will work.</p>
+        </div>
+        <div class="bullet-point">
+          <Icon name="mdi:checkbox-marked-circle-outline" class="bullet-point-icon"/>
+          <h3 class="bullet-point-title">Concentric direct-drive</h3>
+          <p class="description">This is a placeholder text to showcase the way the description will work.</p>
+        </div>
+        <div class="bullet-point">
+          <Icon name="mdi:checkbox-marked-circle-outline" class="bullet-point-icon"/>
+          <h3 class="bullet-point-title">True fail-operational</h3>
+          <p class="description">This is a placeholder text to showcase the way the description will work. This is a placeholder text to showcase the way the description will work. This is a placeholder text to showcase the way the description will work. This is a placeholder text to showcase the way the description will work. This is a placeholder text to showcase the way the description will work.</p>
+        </div>
+        <div class="bullet-point">
+          <Icon name="mdi:checkbox-marked-circle-outline" class="bullet-point-icon"/>
+          <h3 class="bullet-point-title">Dual-channel ASIL-D control</h3>
+          <p class="description">This is a placeholder text to showcase the way the description will work.</p>
+        </div>
+      </div>
+    </Section>
+  </div>
   <div class="section">
     <Section>
       <div class="section-content">
-        <h2 class="section-title">CS1 System Specifications</h2>
+        <h2 class="section-title">CS1 system specifications</h2>
         <Specifications image="/website-current/images/product/hero.png" specs={specs}/>
       </div>
     </Section>
-  </div> 
+  </div>
+
+  <style>
+    .title-section {
+      margin-bottom: 5vh;
+    }
+
+    .bullet-points {
+      display: flex;
+      gap: 2vw;
+      flex-wrap: wrap;
+      margin-block: 4vh;
+
+      .bullet-point {
+        width: 400px;
+        
+        display: flex;
+        flex-flow: column;
+        gap: 1vh;
+
+        .bullet-point-icon {
+          font-size: 3em;
+          color: var(--primary);
+        }
+        .description {
+          white-space: pre;
+          text-wrap: wrap;
+        } 
+      }
+    }
+  </style>
 </MainLayout>
 

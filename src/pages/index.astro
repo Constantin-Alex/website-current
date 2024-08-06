@@ -94,6 +94,26 @@ import MainLayout from "../layouts/MainLayout.astro";
       }
     }
 
+    @media screen and (max-width: 767px) {
+      .section-title {
+        font-size: 2.5em;
+      }
+
+      .item {
+        flex-flow: column;
+
+        .item-image {
+          width: 90vw;
+        }
+
+        .item-container {
+          .item-description {
+            margin-left: 0;
+          }
+        }
+      }
+    }
+
     .product {
       background-color: var(--secondary);
       color: var(--background);
@@ -103,7 +123,6 @@ import MainLayout from "../layouts/MainLayout.astro";
       display: grid;
       grid-template-columns: 1fr 1fr;
       grid-template-rows: 2fr 1fr;
-      overflow: hidden;
     }
 
     .product-image {
@@ -123,6 +142,7 @@ import MainLayout from "../layouts/MainLayout.astro";
       gap: 2vh;
       justify-content: center;
       margin-right: 10vw;
+      min-height: max-content;
     }
 
     .product-cta {
@@ -142,6 +162,20 @@ import MainLayout from "../layouts/MainLayout.astro";
       a:hover {
         background-color: var(--background);
         color: var(--secondary);
+      }
+    }
+
+    @media screen and (max-width: 1000px){
+      .product {
+        height: max-content;
+        .product-content {
+          display: flex;
+          flex-flow: column;
+        }
+
+        .product-cta {
+          margin-block: 50px;
+        }
       }
     }
 
