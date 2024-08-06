@@ -11,19 +11,6 @@ import MainLayout from "../layouts/MainLayout.astro";
     <Section>
       <div class="section-content">
         <div class="section-left">
-          <h1 class="section-title">Contact us</h1>
-          <div class="locations">
-            <div class="location">
-              <h3 class="title">Trollhättan</h3>
-              <p class="address">Chassis Autonomy SBA AB Gunnar W Anderssons Passage 32, 461 53 Trollhättan, Sweden</p>
-            </div>
-            <div class="location">
-              <h3 class="title">London</h3>
-              <p class="address">Chassis Autonomy Limited London, United Kingdom</p>
-            </div>
-          </div>
-        </div>
-        <div class="section-right">
           <form class="form" id="contact-form">
             <div class="form-content">
               <div class="form-header">
@@ -46,9 +33,23 @@ import MainLayout from "../layouts/MainLayout.astro";
                 <label for="message" class="form-label">Message *</label>
                 <textarea class="input" name="message" placeholder="Your message here" rows="4"/>
               </div>
-              <button type="submit" class="submit" for="contact-form">Submit <Icon name="akar-icons:paper-airplane" /></button>
+              <button type="submit" class="submit">Submit <Icon name="akar-icons:paper-airplane" /></button>
             </div>
           </form>
+        </div>
+        <div class="section-right">
+          <h1 class="section-title">Contact us</h1>
+          <div class="locations">
+            <div class="location">
+              <h3 class="title">Trollhättan</h3>
+              <p class="address">Chassis Autonomy SBA AB Gunnar W Anderssons Passage 32, 461 53 Trollhättan, Sweden</p>
+            </div>
+            <div class="location">
+              <h3 class="title">London</h3>
+              <p class="address">Chassis Autonomy Limited London, United Kingdom</p>
+            </div>
+          </div>
+        </div>
       </div>
     </Section>
   </div>
@@ -66,13 +67,14 @@ import MainLayout from "../layouts/MainLayout.astro";
     margin-inline: 7.5vw;
   }
 
-  .section-left {
+  .section-right {
     height: calc(100vh - 75px);
     display: flex;
     flex-flow: column;
     gap: 3vh;
     justify-content: center;
     width: 50%;    
+    /* text-align: right; */
   }
 
   .section-title {
@@ -93,12 +95,12 @@ import MainLayout from "../layouts/MainLayout.astro";
     margin-bottom: 2vh;
   }
 
-  .section-right { 
+  .section-left { 
     width: 50%;
     min-height: 500px;
     height: calc(100vh - 75px);
     display: flex;
-    justify-content: end;
+    justify-content: start;
     align-items: center;
   }
 

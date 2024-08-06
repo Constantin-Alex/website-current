@@ -1,8 +1,265 @@
 ---
 import Hero from "../components/Hero.astro";
+import Section from "../components/Section.astro";
 import MainLayout from "../layouts/MainLayout.astro";
 ---
 
 <MainLayout title="Chassis Autonomy - Home">
   <Hero title="Unlocking the full potential of autonomy through fail-operational actuation" image="/website-current/images/home/hero.png" image_alt="Hero Image"/>
+  <div class="section">
+    <Section>
+      <h2 class="section-title">Uncompromised by legacy</h2>
+      <div class="item">
+        <img src="/website-current/images/home/item-display.png" alt="" class="item-image">
+        <div class="item-container">
+          <h3 class="item-title">‣ Ensuring safety</h3>
+          <p class="item-description">By adding a system for redundant actuation in the case of a vehicle fault, we are bringing aircraft levels of safety down to the ground.</p>
+        </div>
+      </div>
+      <div class="item">
+        <img src="/website-current/images/home/item-display.png" alt="" class="item-image">
+        <div class="item-container">
+        <h3 class="item-title">‣ Leveraging the full potential of autonomy</h3>
+        <p class="item-description">The deployment of a steer by-wire system will see benefits in space, design freedom, customisation, tuning, and general accessibility.</p>
+        </div>
+      </div>
+      <div class="item">
+        <img src="/website-current/images/home/item-display.png" alt="" class="item-image">
+        <div class="item-container">
+        <h3 class="item-title">‣ Securing the future of autonomous mobility</h3>
+        <p class="item-description">The industry and the ecosystem are close to the point at which a new era of mobility can be realised. It is this potential that drives our work.</p>
+        </div>
+      </div>
+    </Section>
+  </div>
+  <div class="section product">
+    <Section>
+      <div class="product-content">
+        <img src="/website-current/images/home/actuator.png" alt="" class="product-image">
+        <div class="product-text">
+          <h2 class="product-title">Steer-by-wire</h2>
+          <p class="product-description">Ground breaking innovoation, paving the way for the future of autonomous mobility - and make sure it is safe and sustainable.</p>
+        </div>
+        <div class="product-cta">
+          <a href="/website-current/product">Press to find out more</a>
+        </div>
+      </div>
+    </Section>
+  </div>
+  <div class="section">
+    <Section>
+      <h2 class="section-title">Applications</h2>
+      <div class="applications-grid">
+        <div class="application showcase-application">
+          <img src="/website-current/images/home/hero.png" alt="" class="application-image">
+          <h3 class="application-title">Highly automated</h3>
+          <p class="application-description">Assuring steering functionality and availability, even in the event of a system fault.</p>
+        </div>
+        <div class="application subitem-1">
+          <img src="/website-current/images/home/hero.png" alt="" class="application-image">
+          <h3 class="application-title">Autonomous shuttles</h3>
+          <p class="application-description">Ensuring the safety of passenger and other road users, with true fail-operational actuation up to 1 000 000 km.</p>
+        </div>
+        <div class="application subitem-2">
+          <img src="/website-current/images/home/hero.png" alt="" class="application-image">
+          <h3 class="application-title">Off-highway</h3>
+          <p class="application-description">Where reliability and availability is critical in ensuring the uninterrupted flow of global logistics.</p>
+        </div>
+      </div>
+    </Section>
+  </div>
+  <style>
+    .section {
+      margin-block: 2vh;
+    }
+  
+    .item {
+      display: flex;
+      gap: 1vw;
+      margin-block: 1vh;
+      
+      .item-image {
+        width: 400px;
+        object-fit: cover;
+        border-radius: 20px;
+      } 
+      .item-container {
+        display: flex;
+        flex-flow: column;
+        gap: 1vh;
+        margin-block: auto;
+        .item-description {
+          margin-left: 20px;
+        }
+      }
+    }
+
+    .product {
+      background-color: var(--secondary);
+      color: var(--background);
+    }
+
+    .product-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 2fr 1fr;
+      overflow: hidden;
+    }
+
+    .product-image {
+      object-fit: cover;
+      grid-column: 2;
+      grid-row-start: 1;
+      grid-row-end: 3;
+      height: 100%;
+      width: 100%;
+    }
+
+    .product-text {
+      grid-column: 1;
+      grid-row: 1;
+      display: flex;
+      flex-flow: column;
+      gap: 2vh;
+      justify-content: center;
+      margin-right: 10vw;
+    }
+
+    .product-cta {
+      grid-column: 1;
+      grid-row: 2;
+      a {
+        border: 3px solid var(--background);
+        border-radius: 10px;
+        text-decoration: none;
+        color: var(--background);
+        padding: 10px;
+        font-size: 1.2em;
+        transition: all 0.3s ease-in-out;
+        margin-top: 50px;
+      }
+
+      a:hover {
+        background-color: var(--background);
+        color: var(--secondary);
+      }
+    }
+
+    .applications-grid {
+      display: grid;
+      height: 50vh;
+      grid-template-rows: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+      grid-gap: 20px;
+      margin-block: 2vh;
+    }
+
+    .application {
+      border-radius: 30px;
+      background-color: var(--background-alt);
+      position: relative;
+      overflow: hidden;
+      cursor: hidden;
+    }
+
+    .showcase-application {
+      grid-column: 1;
+      grid-row-start: 1;
+      grid-row-end: 3;
+    }
+
+    .subitem-1 {
+      grid-column: 2;
+      grid-row: 1;
+    }
+
+    .subitem-2 {
+      grid-column: 2;
+      grid-row: 2;
+    }
+
+
+    .application-image {
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+      transition: all 0.3s ease-in-out;
+    }
+
+    .application-title {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      padding: 10px;
+      background-color: rgba(10, 10, 10, 0.5);
+      color: var(--background);
+      transition: all 0.3s ease-in-out;
+      text-align: center;
+      width: 45%;
+      height: 40px;
+      /* min-height: max-content; */
+      min-width: max-content;
+      border-radius: 10px;
+    }
+  
+    .application-description {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      z-index: 10;
+      transform: translate(-50%, -50%);
+      color: var(--background);
+      text-align: center;
+      opacity: 0;
+      transition: all 0.3s ease-in-out;
+    }
+
+    .application:hover > .application-image {
+      transform: scale(150%);
+    }
+
+    .application:hover > .application-title {
+      top: 10%;
+      padding-top: 20px;
+      width: 100%;
+      height: 100%;
+      transform: translateY(-10%) translateX(-50%);
+    }
+
+    .application:hover > .application-description {
+      opacity: 1;
+    }
+
+    @media screen and (max-width: 767px) {
+      .applications-grid {
+        display: flex;
+        flex-flow: column;
+        overflow: visible;
+        height: max-content; 
+
+        .application {
+          width: 90vw;
+          height: 90vw;
+        }
+      }
+
+    .application-image {
+      transform: scale(150%);
+    }
+
+    .application-title {
+      top: 10%;
+      padding-top: 20px;
+      width: 100%;
+      height: 100%;
+      transform: translateY(-10%) translateX(-50%);
+    }
+
+    .application-description {
+      opacity: 1;
+    }
+
+  </style>
 </MainLayout>

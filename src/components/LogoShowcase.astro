@@ -3,26 +3,38 @@ interface Props {
   image: string;
   image_alt: string;
   url: string;
+  text: string;
 }
 
-const {image, image_alt, url} = Astro.props;
+const {image, image_alt, url, text} = Astro.props;
 ---
 
 <a href={url} class="link" target="_blank">
   <img src={image} alt={image_alt} class="image" >
+  <h4 class="text">{text}</h4>
 </a>
 
 <style>
 
-.image {
-  width: 300px;
-
-  filter: grayscale(100%); 
-  transition: all 0.3s ease-in-out;
+.link {
+  text-decoration: none;
 }
 
-.image:hover {
+.image {
+  width: 300px;
+  height: 200px;
+  filter: grayscale(100%); 
+  transition: all 0.3s ease-in-out;
+  object-fit: contain;
+}
+
+.link:hover > .image {
   filter: grayscale(0);
+}
+
+.text {
+  color: var(--primary);
+  text-align: center;
 }
 
 </style>
