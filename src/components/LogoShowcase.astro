@@ -11,7 +11,7 @@ const {image, image_alt, url, text} = Astro.props;
 
 <a href={url} class="link" target="_blank">
   <img src={image} alt={image_alt} class="image" >
-  <h4 class="text">{text}</h4>
+  <p class="text">{text}</p>
 </a>
 
 <style>
@@ -33,7 +33,7 @@ const {image, image_alt, url, text} = Astro.props;
 }
 
 .text {
-  color: var(--primary);
+  color: var(--secondary);
   text-align: center;
 }
 

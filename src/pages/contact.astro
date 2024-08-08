@@ -41,12 +41,14 @@ import MainLayout from "../layouts/MainLayout.astro";
           <h1 class="section-title">Contact us</h1>
           <div class="locations">
             <div class="location">
-              <h3 class="title">Trollhättan</h3>
+              <h3 class="title">Headquarters</h3>
               <p class="address">Chassis Autonomy SBA AB Gunnar W Anderssons Passage 32, 461 53 Trollhättan, Sweden</p>
             </div>
             <div class="location">
-              <h3 class="title">London</h3>
-              <p class="address">Chassis Autonomy Limited London, United Kingdom</p>
+              <h3 class="title">UK office</h3>
+              <p class="address">Chassis Autonomy Limited,
+London, 
+United Kingdom</p>
             </div>
           </div>
         </div>
@@ -74,7 +76,6 @@ import MainLayout from "../layouts/MainLayout.astro";
     gap: 3vh;
     justify-content: center;
     width: 50%;    
-    /* text-align: right; */
   }
 
   .section-title {
@@ -155,9 +156,14 @@ import MainLayout from "../layouts/MainLayout.astro";
     background-color: var(--primary);
   } 
 
+  .address {
+    white-space: pre-line;
+    text-wrap: wrap;
+  }
+
   @media screen and (max-width: 1000px){
     .section-content {
-      flex-flow: column;
+      flex-flow: column-reverse;
     
     }
 

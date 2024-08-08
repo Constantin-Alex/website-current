@@ -1,0 +1,142 @@
+---
+import { getCollection, type CollectionEntry } from "astro:content";
+import VacancyLayout from "../../layouts/VacancyLayout.astro";
+import { Icon } from "astro-icon/components";
+
+export const getStaticPaths = async () => {
+  const vacancies = await getCollection("vacancies");
+ 
+  const paths = vacancies.map(vacancy => {
+    return {
+      params: {
+        slug: vacancy.slug
+      },
+      props: {
+        vacancy
+      }
+    }
+  });
+
+  return paths;
+};
+
+interface Props {
+  vacancy: CollectionEntry<"vacancies">
+}
+
+const {vacancy} = Astro.props;
+const {Content} = await vacancy.render();
+---
+
+<VacancyLayout title={vacancy.data.role}>
+  <div class="header">
+      <h1 class="role">{vacancy.data.role}</h1>
+      <div class="subtitle">{vacancy.data.reference} | {vacancy.data.location} | {vacancy.data.type}</div> 
+    </div>
+  <div class="content">
+    <Content/>
+  </div>
+    <form class="form" id="contact-form">
+      <div class="form-content">
+        <div class="form-header">
+          <h4 class="form-title">Apply now</h4>
+          <p class="info">* Required</p>
+        </div>
+        <div class="form-item">
+          <label for="name" class="form-label">Name *</label>
+          <input class="input" type="text" name="name" placeholder="John Doe">
+        </div>
+        <div class="form-item">
+          <label for="email" class="form-label">Email *</label>
+          <input class="input" type="email" name="email" placeholder="yourname@email.com">
+        </div>
+        <div class="form-item">
+          <label for="phone" class="form-label">Phone Number </label>
+          <input class="input" type="tel" name="phone" placeholder="07999999999">
+        </div>
+        <div class="form-item">
+          <label for="resume" class="form-label">Resume</label>
+          <input class="input" type="file" name="resume" accept=".pdf">
+        </div>
+        <div class="form-item">
+      
+        </div>
+        <button type="submit" class="submit">Submit <Icon name="akar-icons:paper-airplane" /></button>
+      </div>
+    </form>
+
+  <style>
+  .role {
+    font-size: 3em;
+    margin-bottom: 0.3em
+  }
+  
+  .subtitle {
+    color: #888888;
+  } 
+
+  .header {
+    margin-bottom: 0.5em;
+    text-align: center;
+  }
+
+  .content {
+    width: 500px;
+    margin-inline: auto;
+  }
+
+  .form {
+    width: 500px;
+    background-color: var(--background-alt);
+    border-radius: 10px;
+    margin-inline: auto;
+    margin-top: 1.5em;
+    margin-bottom: 3em;
+  }
+
+  .form-content {
+    padding: 20px;
+    
+  }
+
+  .form-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 3vh;
+  }
+
+  .form-item {
+    display: flex;
+    flex-flow: column;
+    margin-bottom: 1.5vh;
+    gap: 0.5vh;
+  }
+
+  .input {
+    border: 1px solid rgba(30, 30, 30, 0.5);
+    border-radius: 5px;
+    padding: 5px;
+    background-color: var(--background-alt);
+  }
+
+  .submit {
+    border: 1px solid var(--primary);
+    border-radius: 5px;
+    color: var(--primary);
+    padding: 10px;
+    background-color: transparent;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    display: flex;
+    gap: 0.5vw;
+
+  }
+  
+  .submit:hover {
+    color: var(--background);
+    background-color: var(--primary);
+  } 
+
+  </style>
+</VacancyLayout>
+

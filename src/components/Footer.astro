@@ -6,7 +6,7 @@ const year = new Date().getFullYear();
 
 <div class="footer">
   <Section>
-<div class="content">
+    <div class="content">
       <div class="text">
         <img class="logo" src="/website-current/images/logos/Logo.png" alt="Logo">
         <div class="socials">
@@ -59,7 +59,7 @@ const year = new Date().getFullYear();
   grid-template-rows: 3fr 1fr;
   position: absolute;
   top: 50%;
-  width: calc(100% - 6vw);
+  width: calc(100% - 10vw);
   transform: translateY(-50%);
 }
 
@@ -72,7 +72,6 @@ const year = new Date().getFullYear();
   height: 50px;
   object-fit: contain;
   margin-block: auto;
-  /* filter: grayscale(100); */
 }
 
 .socials {
@@ -89,7 +88,12 @@ const year = new Date().getFullYear();
 .socials-link {
   height: 50px;
   object-fit: contain;
-  /* filter: grayscale(0.8); */
+  filter: grayscale(100);
+  transition: all 0.3s ease-in-out;
+}
+
+.socials-link:hover {
+  filter: grayscale(0);
 }
 
 .links {

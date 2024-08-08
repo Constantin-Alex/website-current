@@ -1,11 +1,12 @@
 ---
 interface Props {
   vertical?: boolean;
+  alt?: boolean;
 }
 
-const { vertical } = Astro.props;
+const { vertical, alt } = Astro.props;
 ---
-<div class={`separator ${vertical ? 'vertical' : 'horizontal'}`}></div>
+<div class={`separator ${vertical ? 'vertical' : 'horizontal'} ${alt ? 'background-alt' : ''}`}></div>
 
 <style>
 .separator {
@@ -22,5 +23,9 @@ const { vertical } = Astro.props;
   width: 1px;
   height: 100%;
   mask-image: linear-gradient(to bottom, transparent 0%, rgba(0,0,0,1) 30%, rgba(0,0,0,1) 70%, transparent 100%);
+}
+
+.background-alt {
+  background-color: #DDDDDD;
 }
 </style>

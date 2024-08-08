@@ -6,8 +6,9 @@ import MainLayout from "../layouts/MainLayout.astro";
 
 import values from "../content/details/values.json";
 import Card from "../components/Card.astro";
+import { getCollection } from "astro:content";
 
-const vacancies = [];
+const vacancies = await getCollection("vacancies");
 ---
 
 <MainLayout title="Chassis Autonomy - Careers">
@@ -30,21 +31,64 @@ const vacancies = [];
   <div class="section">
     <Section>
       <h2 class="section-title">Vacancies</h2>
-      { vacancies.length === 0 && <h4 style={{fontWeight: "normal"}}>No vacancies at this moment. Come back later.</h4> } 
+      { vacancies.length === 0 && <h4 style={{fontWeight: "normal"}}>No vacancies at this moment. Come back later.</h4> }
+      { vacancies.map(vacancy => 
+      <Separator alt/>
+      <a href={`/website-current/careers/${vacancy.slug}`} class="vacancy">
+        <span class="role">{vacancy.data.role}</span> 
+        <span class="location">{vacancy.data.location}</span>
+        <button class="cta">Details</button>
+      </a>
+      <Separator alt/>
+      )}
     </Section>
   </div>
 <style>
   .title-section {
-    margin-bottom: 5vh;
+    margin-bottom: 3em;
   }
 
   .section {
     min-height: 40vh;
-    padding-bottom: 3vh;
+    padding-bottom: 2em;
   }
 
   .section-title {
-    margin-bottom: 5vh;
+    margin-bottom: 1em;
+  }
+
+  .vacancy {
+    display: flex;
+    justify-content: space-between;
+    text-decoration: none;
+    color: var(--text);
+    padding-block: 1em;
+  
+    .role {
+      margin-block: auto;
+    }
+
+    .location {
+      color: #555555;
+      margin-block: auto;
+    }
+
+    .cta {
+      border: 2px solid var(--primary);
+      border-radius: 5px;
+      background: transparent;
+      color: var(--primary);
+      font-weight: bold;
+      padding-block: 0.5em;
+      padding-inline: 0.8em;
+      transition: all 0.3s ease-in-out;
+      cursor: pointer;
+    }
+
+    .cta:hover {
+      background-color: var(--primary);
+      color: var(--background);
+    }
   }
 
 </style>
