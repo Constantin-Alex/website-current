@@ -1,6 +1,7 @@
 ---
 import { getCollection, type CollectionEntry } from "astro:content";
 import VacancyLayout from "../../layouts/VacancyLayout.astro";
+import Section from "../../components/Section.astro";
 import { Icon } from "astro-icon/components";
 
 export const getStaticPaths = async () => {
@@ -29,6 +30,8 @@ const {Content} = await vacancy.render();
 ---
 
 <VacancyLayout title={vacancy.data.role}>
+  <Section>
+
   <div class="header">
       <h1 class="role">{vacancy.data.role}</h1>
       <div class="subtitle">{vacancy.data.reference} | {vacancy.data.location} | {vacancy.data.type}</div> 
@@ -64,6 +67,7 @@ const {Content} = await vacancy.render();
         <button type="submit" class="submit">Submit <Icon name="akar-icons:paper-airplane" /></button>
       </div>
     </form>
+  </Section>
 
   <style>
   .role {
@@ -81,7 +85,7 @@ const {Content} = await vacancy.render();
   }
 
   .content {
-    width: 500px;
+    /* width: 500px; */
     margin-inline: auto;
   }
 

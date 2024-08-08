@@ -1,0 +1,75 @@
+---
+import { getCollection, type CollectionEntry } from "astro:content";
+import MainLayout from "../../layouts/MainLayout.astro";
+import Section from "../../components/Section.astro";
+
+export const getStaticPaths = async () => {
+  const news = await getCollection("news");
+ 
+  const paths = news.map(_news => {
+    return {
+      params: {
+        slug: _news.slug
+      },
+      props: {
+        _news
+      }
+    }
+  });
+
+  return paths;
+};
+
+interface Props {
+  _news: CollectionEntry<"news">
+}
+
+const {_news} = Astro.props;
+const {Content} = await _news.render();
+
+---
+
+<MainLayout title={_news.data.title}>
+  <div class="header">
+    <Section>
+      <img src={_news.data.image} alt="Banner Image" class="banner-image">
+      <h1 class="title">{_news.data.title}</h1>
+      <h4 class="subtitle">{_news.data.author} • {_news.data.date}</h4>
+    </Section>
+  </div>
+  <Section>
+    <div class="news-content">
+      <Content/>
+    </div>
+    
+  </Section>
+  <style is:global>
+    .header {
+      margin-bottom: 1em;
+
+      .banner-image {
+        width: 100%;
+        height: 20em;
+        object-fit: cover;
+      }
+
+      .title {
+        font-size: 2.5em;
+        margin-bottom: 0;
+      }
+
+      .subtitle {
+        font-weight: normal;
+        color: #888888;
+      }
+
+    }
+    .news-content {
+      p {
+        margin-bottom: 1em;
+      }
+      margin-bottom: 2em;
+    }
+
+  </style>
+</MainLayout>

@@ -1,8 +1,9 @@
 ---
+import { getCollection } from "astro:content";
 import MainLayout from "../layouts/MainLayout.astro";
 
-
+const news = await getCollection("news");
 ---
 <MainLayout title="Chassis Autonomy - News">
-
+  {news.map(_news => <a href={`/website-current/news/${_news.slug}`} class="news">{_news.data.title}</a>)}
 </MainLayout>

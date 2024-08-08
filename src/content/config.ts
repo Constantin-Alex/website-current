@@ -9,6 +9,16 @@ const vacancyCollection = defineCollection({
   }),
 });
 
+const newsCollection = defineCollection({
+  schema: z.object({
+    title: z.string(),
+    author: z.string(),
+    date: z.string(),
+    image: z.string(),
+  }),
+});
+
 export const collections = {
   vacancies: vacancyCollection,
+  news: newsCollection,
 };
