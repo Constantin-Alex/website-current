@@ -8,12 +8,30 @@ const year = new Date().getFullYear();
   <Section>
     <div class="content">
       <div class="text">
-        <img class="logo" src="/website-current/images/logos/Logo.png" alt="Logo">
+        <img
+          class="logo"
+          src="/website-current/images/logos/Logo.png"
+          alt="Logo"
+        />
         <div class="socials">
           <h3 class="title">Follow us</h3>
           <div class="socials-links">
-            <a href="https://www.youtube.com/@chassisautonomy" target="_blank"><img class="socials-link" src="/website-current/images/socials/youtube.png" alt="Youtube Logo"></a>
-            <a href="https://uk.linkedin.com/company/chassisautonomy" target="_blank"><img class="socials-link" src="/website-current/images/socials/linkedin.png" alt="LinkedIn Logo"></a>
+            <a href="https://www.youtube.com/@chassisautonomy" target="_blank"
+              ><img
+                class="socials-link"
+                src="/website-current/images/socials/youtube.png"
+                alt="Youtube Logo"
+              /></a
+            >
+            <a
+              href="https://uk.linkedin.com/company/chassisautonomy"
+              target="_blank"
+              ><img
+                class="socials-link"
+                src="/website-current/images/socials/linkedin.png"
+                alt="LinkedIn Logo"
+              /></a
+            >
           </div>
         </div>
         <div class="links">
@@ -25,117 +43,123 @@ const year = new Date().getFullYear();
         <div class="locations">
           <h3 class="title">Find us</h3>
           <div class="addresses">
-            <p class="address">Chassis Autonomy SBA AB Gunnar W Anderssons Passage 32, 461 53 Trollhättan, Sweden</p>
-            <p class="address">Chassis Autonomy Limited London United Kingdom</p>
+            <p class="address">
+              Chassis Autonomy SBA AB Gunnar W Anderssons Passage 32, 461 53
+              Trollhättan, Sweden
+            </p>
+            <p class="address">
+              Chassis Autonomy Limited London United Kingdom
+            </p>
           </div>
         </div>
       </div>
       <div class="copyright">
         <p>© Copyright Chassis Autonomy SBA AB | All Rights Reserved</p>
-        <p>Chassis Autonomy and the CA logo device are registered trademarks of Chassis Autonomy
-          SBA AB, Sweden, {year}</p>
+        <p>
+          Chassis Autonomy and the CA logo device are registered trademarks of
+          Chassis Autonomy SBA AB, Sweden, {year}
+        </p>
       </div>
     </div>
   </Section>
 </div>
 
 <style>
-.footer {
-  min-height: 400px;
-  box-shadow:
-  0px -2.8px 2.2px rgba(0, 0, 0, 0.02),
-  0px -6.7px 5.3px rgba(0, 0, 0, 0.028),
-  0px -12.5px 10px rgba(0, 0, 0, 0.035),
-  0px -22.3px 17.9px rgba(0, 0, 0, 0.042),
-  0px -41.8px 33.4px rgba(0, 0, 0, 0.05),
-  0px -100px 80px rgba(0, 0, 0, 0.07);
-  position: relative;
-
-  background-color: var(--background-alt);
-} 
-
-.content {
-  display: grid;
-  grid-template-rows: 3fr 1fr;
-  position: absolute;
-  top: 50%;
-  width: calc(100% - 10vw);
-  transform: translateY(-50%);
-}
-
-.text {
-  display: flex;
-  justify-content: space-evenly;
-}
-
-.logo {
-  height: 50px;
-  object-fit: contain;
-  margin-block: auto;
-}
-
-.socials {
-  display: flex;
-  flex-flow: column;
-  gap: 1.5vh;
-}
-
-.socials-links {
-  display: flex;
-  gap: 1vw;
-}
-
-.socials-link {
-  height: 50px;
-  object-fit: contain;
-  filter: grayscale(100);
-  transition: all 0.3s ease-in-out;
-}
-
-.socials-link:hover {
-  filter: grayscale(0);
-}
-
-.links {
-  display: flex;
-  flex-flow: column;
-  gap: 1.5vh;
-}
-
-.link {
-  text-decoration: none;
-  color: var(--text);
-}
-
-.addresses {
-  display: flex;
-  margin-top: 1.5vh;
-  gap: 1vw;
-}
-
-.address {
-  max-width: 200px;
-}
-
-.copyright {
-  border-top: 1px solid black;
-  padding-top: 3vh;
-  grid-row: 2;
-  text-align: center;
-}
-
-@media screen and (max-width: 1000px){
   .footer {
-    height: 800px;
+    min-height: 400px;
+    box-shadow:
+      0px -2.8px 2.2px rgba(0, 0, 0, 0.02),
+      0px -6.7px 5.3px rgba(0, 0, 0, 0.028),
+      0px -12.5px 10px rgba(0, 0, 0, 0.035),
+      0px -22.3px 17.9px rgba(0, 0, 0, 0.042),
+      0px -41.8px 33.4px rgba(0, 0, 0, 0.05),
+      0px -100px 80px rgba(0, 0, 0, 0.07);
+    position: relative;
+
+    background-color: var(--background-alt);
+  }
+
+  .content {
+    display: grid;
+    grid-template-rows: 3fr 1fr;
+    position: absolute;
+    top: 50%;
+    width: calc(100% - 10vw);
+    transform: translateY(-50%);
   }
 
   .text {
+    display: flex;
+    justify-content: space-evenly;
+  }
+
+  .logo {
+    height: 50px;
+    object-fit: contain;
+    margin-block: auto;
+  }
+
+  .socials {
+    display: flex;
     flex-flow: column;
-    margin-bottom: 2vh;
     gap: 1.5vh;
-    align-items: center;
+  }
+
+  .socials-links {
+    display: flex;
+    gap: 1vw;
+  }
+
+  .socials-link {
+    height: 50px;
+    object-fit: contain;
+    filter: grayscale(100);
+    transition: all 0.3s ease-in-out;
+  }
+
+  .socials-link:hover {
+    filter: grayscale(0);
+  }
+
+  .links {
+    display: flex;
+    flex-flow: column;
+    gap: 1.5vh;
+  }
+
+  .link {
+    text-decoration: none;
+    color: var(--text);
+  }
+
+  .addresses {
+    display: flex;
+    margin-top: 1.5vh;
+    gap: 1vw;
+  }
+
+  .address {
+    max-width: 200px;
+  }
+
+  .copyright {
+    border-top: 1px solid black;
+    padding-top: 3vh;
+    grid-row: 2;
     text-align: center;
   }
-}
 
+  @media screen and (max-width: 1000px) {
+    .footer {
+      height: 800px;
+    }
+
+    .text {
+      flex-flow: column;
+      margin-bottom: 2vh;
+      gap: 1.5vh;
+      align-items: center;
+      text-align: center;
+    }
+  }
 </style>

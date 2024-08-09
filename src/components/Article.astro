@@ -1,0 +1,64 @@
+---
+import Section from "./Section.astro";
+
+interface Props {
+  title: string;
+  date: string;
+  image: string;
+  path: string;
+}
+
+const { title, date, image, path } = Astro.props;
+---
+
+<div class="news">
+  <img class="image" src={image} alt="news-image" />
+  <h4 class="title">{title}</h4>
+  <p class="date">{date}</p>
+  <a href={`/website-current/news/${path}`} class="redirect">Read more</a>
+</div>
+
+<style>
+  .news {
+    width: 400px;
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: var(--background-alt);
+
+    display: flex;
+    flex-flow: column;
+
+    .image {
+      width: 400px;
+      height: 250px;
+      object-fit: cover;
+    }
+
+    .title {
+      margin-inline: 10px;
+    }
+
+    .date {
+      margin-inline: 10px;
+      color: #555555;
+    }
+
+    .redirect {
+      text-decoration: none;
+      color: var(--primary);
+      border-radius: 5px;
+      border: 2px solid var(--primary);
+      padding-block: 10px;
+      padding-inline: 25px;
+      width: max-content;
+      margin-inline: auto;
+      margin-block: 20px;
+      transition: all 0.3s ease-in-out;
+    }
+
+    .redirect:hover {
+      color: var(--background);
+      background-color: var(--primary);
+    }
+  }
+</style>

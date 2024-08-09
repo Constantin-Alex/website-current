@@ -1,10 +1,9 @@
 ---
-import {Icon} from 'astro-icon/components';
+import { Icon } from "astro-icon/components";
 
 import Section from "../components/Section.astro";
 import MainLayout from "../layouts/MainLayout.astro";
 ---
-
 
 <MainLayout title="Chassis Autonomy - Contact">
   <div class="section">
@@ -19,21 +18,42 @@ import MainLayout from "../layouts/MainLayout.astro";
               </div>
               <div class="form-item">
                 <label for="name" class="form-label">Name *</label>
-                <input class="input" type="text" name="name" placeholder="John Doe">
+                <input
+                  class="input"
+                  type="text"
+                  name="name"
+                  placeholder="John Doe"
+                />
               </div>
               <div class="form-item">
                 <label for="email" class="form-label">Email *</label>
-                <input class="input" type="email" name="email" placeholder="yourname@email.com">
+                <input
+                  class="input"
+                  type="email"
+                  name="email"
+                  placeholder="yourname@email.com"
+                />
               </div>
               <div class="form-item">
                 <label for="phone" class="form-label">Phone Number </label>
-                <input class="input" type="tel" name="phone" placeholder="07999999999">
+                <input
+                  class="input"
+                  type="tel"
+                  name="phone"
+                  placeholder="07999999999"
+                />
               </div>
               <div class="form-item">
                 <label for="message" class="form-label">Message *</label>
-                <textarea class="input" name="message" placeholder="Your message here" rows="4"/>
+                <textarea
+                  class="input"
+                  name="message"
+                  placeholder="Your message here"
+                  rows="4"></textarea>
               </div>
-              <button type="submit" class="submit">Submit <Icon name="akar-icons:paper-airplane" /></button>
+              <button type="submit" class="submit"
+                >Submit <Icon name="akar-icons:paper-airplane" /></button
+              >
             </div>
           </form>
         </div>
@@ -42,13 +62,16 @@ import MainLayout from "../layouts/MainLayout.astro";
           <div class="locations">
             <div class="location">
               <h3 class="title">Headquarters</h3>
-              <p class="address">Chassis Autonomy SBA AB Gunnar W Anderssons Passage 32, 461 53 Trollhättan, Sweden</p>
+              <p class="address">
+                Chassis Autonomy SBA AB Gunnar W Anderssons Passage 32, 461 53
+                Trollhättan, Sweden
+              </p>
             </div>
             <div class="location">
               <h3 class="title">UK office</h3>
-              <p class="address">Chassis Autonomy Limited,
-London, 
-United Kingdom</p>
+              <p class="address">
+                Chassis Autonomy Limited, London, United Kingdom
+              </p>
             </div>
           </div>
         </div>
@@ -57,142 +80,138 @@ United Kingdom</p>
   </div>
 
   <style>
-  .section {
-    min-height: calc(100vh - 75px);
-  }
+    .section {
+      min-height: calc(100vh - 75px);
+    }
 
-  .section-content {
-    display: flex;
-    align-items: center;
-    min-height: calc(100vh - 75px);
-    width: calc(100% - 15vw);
-    margin-inline: 7.5vw;
-  }
-
-  .section-right {
-    height: calc(100vh - 75px);
-    display: flex;
-    flex-flow: column;
-    gap: 3vh;
-    justify-content: center;
-    width: 50%;    
-  }
-
-  .section-title {
-    margin-bottom: 10vh;
-  }
-
-  .locations {
-    display: flex;
-    justify-content: space-between;
-  }
-  
-  .location {
-    min-width: 300px;
-    max-width: 300px;
-  }
-
-  .title {
-    margin-bottom: 2vh;
-  }
-
-  .section-left { 
-    width: 50%;
-    min-height: 500px;
-    height: calc(100vh - 75px);
-    display: flex;
-    justify-content: start;
-    align-items: center;
-  }
-
-  .form {
-    min-width: 500px;
-    width: 60%;
-    min-height: 60%;
-    background-color: var(--background-alt);
-    border-radius: 10px;
-  }
-
-  .form-content {
-    padding: 20px;
-    
-  }
-
-  .form-header {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 3vh;
-  }
-
-  .form-item {
-    display: flex;
-    flex-flow: column;
-    margin-bottom: 1.5vh;
-    gap: 0.5vh;
-  }
-
-  .input {
-    border: 1px solid rgba(30, 30, 30, 0.5);
-    border-radius: 5px;
-    padding: 5px;
-    background-color: var(--background-alt);
-  }
-
-  .submit {
-    border: 1px solid var(--primary);
-    border-radius: 5px;
-    color: var(--primary);
-    padding: 10px;
-    background-color: transparent;
-    cursor: pointer;
-    transition: all 0.3s ease-in-out;
-    display: flex;
-    gap: 0.5vw;
-
-  }
-  
-  .submit:hover {
-    color: var(--background);
-    background-color: var(--primary);
-  } 
-
-  .address {
-    white-space: pre-line;
-    text-wrap: wrap;
-  }
-
-  @media screen and (max-width: 1000px){
     .section-content {
-      flex-flow: column-reverse;
-    
-    }
-
-    .section-left {
-      width: 100%;
-      min-height: 5px;
-      height: max-content;
+      display: flex;
       align-items: center;
-    }
-
-    .locations {
-      flex-flow: column;
-      gap: 3vh;
-    }
-
-    .location {
-      min-width: 100px;
-      text-align: center;
+      min-height: calc(100vh - 75px);
+      width: calc(100% - 15vw);
+      margin-inline: 7.5vw;
     }
 
     .section-right {
-      width: 100%;
+      height: calc(100vh - 75px);
+      display: flex;
+      flex-flow: column;
+      gap: 3vh;
+      justify-content: center;
+      width: 50%;
+    }
+
+    .section-title {
+      margin-bottom: 10vh;
+    }
+
+    .locations {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .location {
+      min-width: 300px;
+      max-width: 300px;
+    }
+
+    .title {
+      margin-bottom: 2vh;
+    }
+
+    .section-left {
+      width: 50%;
+      min-height: 500px;
+      height: calc(100vh - 75px);
+      display: flex;
+      justify-content: start;
+      align-items: center;
     }
 
     .form {
-      min-width: 5px;
-      width: 100%;
+      min-width: 500px;
+      width: 60%;
+      min-height: 60%;
+      background-color: var(--background-alt);
+      border-radius: 10px;
     }
-  }
 
+    .form-content {
+      padding: 20px;
+    }
+
+    .form-header {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 3vh;
+    }
+
+    .form-item {
+      display: flex;
+      flex-flow: column;
+      margin-bottom: 1.5vh;
+      gap: 0.5vh;
+    }
+
+    .input {
+      border: 1px solid rgba(30, 30, 30, 0.5);
+      border-radius: 5px;
+      padding: 5px;
+      background-color: var(--background-alt);
+    }
+
+    .submit {
+      border: 1px solid var(--primary);
+      border-radius: 5px;
+      color: var(--primary);
+      padding: 10px;
+      background-color: transparent;
+      cursor: pointer;
+      transition: all 0.3s ease-in-out;
+      display: flex;
+      gap: 0.5vw;
+    }
+
+    .submit:hover {
+      color: var(--background);
+      background-color: var(--primary);
+    }
+
+    .address {
+      white-space: pre-line;
+      text-wrap: wrap;
+    }
+
+    @media screen and (max-width: 1000px) {
+      .section-content {
+        flex-flow: column-reverse;
+      }
+
+      .section-left {
+        width: 100%;
+        min-height: 5px;
+        height: max-content;
+        align-items: center;
+      }
+
+      .locations {
+        flex-flow: column;
+        gap: 3vh;
+      }
+
+      .location {
+        min-width: 100px;
+        text-align: center;
+      }
+
+      .section-right {
+        width: 100%;
+      }
+
+      .form {
+        min-width: 5px;
+        width: 100%;
+      }
+    }
   </style>
 </MainLayout>

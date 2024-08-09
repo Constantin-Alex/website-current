@@ -1,9 +1,41 @@
 ---
 import { getCollection } from "astro:content";
 import MainLayout from "../layouts/MainLayout.astro";
+import Article from "../components/Article.astro";
+import Section from "../components/Section.astro";
 
 const news = await getCollection("news");
 ---
+
 <MainLayout title="Chassis Autonomy - News">
-  {news.map(_news => <a href={`/website-current/news/${_news.slug}`} class="news">{_news.data.title}</a>)}
+  <Section>
+    <h1 class="title">News</h1>
+  </Section>
+  <div class="news">
+    <Section>
+      <div class="news-content">
+        {
+          news.map((_news) => (
+            <Article
+              title={_news.data.title}
+              date={_news.data.date}
+              image={_news.data.image}
+              path={_news.slug}
+            />
+          ))
+        }
+      </div>
+    </Section>
+  </div>
+
+  <style>
+    .news-content {
+      display: flex;
+      flex-wrap: wrap;
+      margin-inline: auto;
+      justify-content: space-between;
+      gap: 25px;
+      margin-bottom: 50px;
+    }
+  </style>
 </MainLayout>

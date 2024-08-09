@@ -1,23 +1,31 @@
 ---
-import {Icon} from 'astro-icon/components'
+import { Icon } from "astro-icon/components";
 
 interface Props {
   image: string;
   image_alt: string;
-  image_type?: "image" | "icon"; 
+  image_type?: "image" | "icon";
   title: string;
   subtitle?: string;
   description: string;
   hidden?: boolean;
 }
 
-const {image, image_alt, image_type="image", title, subtitle, description, hidden=true} = Astro.props;
+const {
+  image,
+  image_alt,
+  image_type = "image",
+  title,
+  subtitle,
+  description,
+  hidden = true,
+} = Astro.props;
 ---
 
 <div class="card">
-    {image_type === "image" && <img src={image} alt={image_alt} class="image"/>}
-    {image_type === "icon" && <Icon name={image} class="icon"/>}
-    <div class="text-content">
+  {image_type === "image" && <img src={image} alt={image_alt} class="image" />}
+  {image_type === "icon" && <Icon name={image} class="icon" />}
+  <div class="text-content">
     <h4 class="subtitle">{subtitle}</h4>
     <h3 class="title">{title}</h3>
     <p class=`description ${hidden && ""}`>{description}</p>
@@ -25,76 +33,74 @@ const {image, image_alt, image_type="image", title, subtitle, description, hidde
 </div>
 
 <style>
-.card {
-  position: relative;
-  aspect-ratio: 2/3;
-  min-width: 300px;
-  border-radius: 20px;
-  overflow: hidden;
-  background-color: var(--background-alt);
-}
+  .card {
+    position: relative;
+    aspect-ratio: 2/3;
+    min-width: 300px;
+    border-radius: 20px;
+    overflow: hidden;
+    background-color: var(--background-alt);
+  }
 
-.icon {
-  font-size: 10em;
-  height: 200px;
-  width: 100%;
-}
+  .icon {
+    font-size: 10em;
+    height: 200px;
+    width: 100%;
+  }
 
-.card-image {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
+  .card-image {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
 
-.mask-image {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background: var(--text);
-  opacity: 0.5;
-}
+  .mask-image {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: var(--text);
+    opacity: 0.5;
+  }
 
-.text-content {
-  position: absolute;
-  z-index: 10;
-  color: var(--background);
-  background-color: rgba(0,0,0, 0.5);
-  bottom: 0;
-  padding-inline: 1vw;
-  transition: all 0.3s ease-in-out;
-  min-height: 175px;
-  max-height: calc(100%-4vh);
-  display: flex;
-  flex-flow: column;
-  justify-content: start;
-  padding-block: 2vh;
-  transform: translateY(2vh);
-  width: calc(100% - 2vw);
-}
+  .text-content {
+    position: absolute;
+    z-index: 10;
+    color: var(--background);
+    background-color: rgba(0, 0, 0, 0.5);
+    bottom: 0;
+    padding-inline: 1vw;
+    transition: all 0.3s ease-in-out;
+    min-height: 175px;
+    max-height: calc(100%-4vh);
+    display: flex;
+    flex-flow: column;
+    justify-content: start;
+    padding-block: 2vh;
+    transform: translateY(2vh);
+    width: calc(100% - 2vw);
+  }
 
-.subtitle {
-  color: var(--background-alt);
-}
+  .subtitle {
+    color: var(--background-alt);
+  }
 
-.description {
-  transition: all 0.3s ease-in-out;
-}
+  .description {
+    transition: all 0.3s ease-in-out;
+  }
 
-.hidden {
-  opacity: 0;
-}
+  .hidden {
+    opacity: 0;
+  }
 
-.card:active > .text-content ,
-.card:hover > .text-content {
-  height: calc(100%-4vh);
-  transform: translateY(0);
-}
+  .card:active > .text-content,
+  .card:hover > .text-content {
+    height: calc(100%-4vh);
+    transform: translateY(0);
+  }
 
-.card:active > .text-content > .hidden,
-.card:hover > .text-content > .hidden {
-  opacity: 1;
-}
-
+  .card:active > .text-content > .hidden,
+  .card:hover > .text-content > .hidden {
+    opacity: 1;
+  }
 </style>
-

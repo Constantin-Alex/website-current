@@ -14,7 +14,7 @@ import milestones from "../content/details/milestones.json";
   <div class="title-section">
     <Section>
       <h1 class="title">About us</h1>
-      <Separator/>
+      <Separator />
     </Section>
   </div>
   <div class="section">
@@ -22,8 +22,22 @@ import milestones from "../content/details/milestones.json";
       <div class="section-content">
         <h2 class="section-title">Meet our founders</h2>
         <div class="list">
-          <PersonShowcase image="/website-current/images/about/Peter.png" image_alt="Peter Johansson" name="Peter Johansson" titles={["Co-founder" , "CEO"]} description="A serial innovator and visionary with a career history that includes senior and director leadership roles within global automotive companies including SAAB, GM, NEVS and Haldex. Peter now leads Chassis Autonomy as Chief Executive Officer, working closely with the senior leadership team in a push towards autonomous mobility." url="https://www.linkedin.com/in/peter-johansson-/"/>
-          <PersonShowcase image="/website-current/images/about/ThomasLi.jpg" image_alt="Thomas Li" name="Thomas Li" titles={["Co-founder" , "CTO"]} description="A former senior F1 Race Engineer, who is highly experienced in the leadership of engineering teams and the development of advanced automotive engineering systems. Thomas leads Chassis Autonomy as Chief Technology Officer ensuring the correct focus between product development and wider business growth activities." url="https://www.linkedin.com/in/thomas-li--/"/>
+          <PersonShowcase
+            image="/website-current/images/about/Peter.png"
+            image_alt="Peter Johansson"
+            name="Peter Johansson"
+            titles={["Co-founder", "CEO"]}
+            description="A serial innovator and visionary with a career history that includes senior and director leadership roles within global automotive companies including SAAB, GM, NEVS and Haldex. Peter now leads Chassis Autonomy as Chief Executive Officer, working closely with the senior leadership team in a push towards autonomous mobility."
+            url="https://www.linkedin.com/in/peter-johansson-/"
+          />
+          <PersonShowcase
+            image="/website-current/images/about/ThomasLi.jpg"
+            image_alt="Thomas Li"
+            name="Thomas Li"
+            titles={["Co-founder", "CTO"]}
+            description="A former senior F1 Race Engineer, who is highly experienced in the leadership of engineering teams and the development of advanced automotive engineering systems. Thomas leads Chassis Autonomy as Chief Technology Officer ensuring the correct focus between product development and wider business growth activities."
+            url="https://www.linkedin.com/in/thomas-li--/"
+          />
         </div>
       </div>
     </Section>
@@ -39,60 +53,88 @@ import milestones from "../content/details/milestones.json";
     </Section>
   </div>
   <div class="section">
-  <Section>
-    <div class="section-content">
-      <h2 class="section-title">Our partners</h2>
+    <Section>
+      <div class="section-content">
+        <h2 class="section-title">Our partners</h2>
         <div class="list">
-          <LogoShowcase image="/website-current/images/about/cae-value-logo.png" image_alt="CAE Logo" url="https://www.caevalue.com/" text="Simulation and engineering experts"/>
-          <LogoShowcase image="/website-current/images/about/vi-grade-logo.png" image_alt="VI Grade" url="https://www.vi-grade.com/" text="World leader in HiL simulators"/>
-          <LogoShowcase image="/website-current/images/about/kongsberg-logo.png" image_alt="Kongsberg Logo" url="https://www.kongsbergautomotive.com/" text= "Global supplier of mobility solutions"/>
-          <LogoShowcase image="/website-current/images/about/surrey-logo.png" image_alt="University of Surrey Logo" url="https://www.surrey.ac.uk/" text="Leading research-intensive higher education institution"/>
+          <LogoShowcase
+            image="/website-current/images/about/cae-value-logo.png"
+            image_alt="CAE Logo"
+            url="https://www.caevalue.com/"
+            text="Simulation and engineering experts"
+          />
+          <LogoShowcase
+            image="/website-current/images/about/vi-grade-logo.png"
+            image_alt="VI Grade"
+            url="https://www.vi-grade.com/"
+            text="World leader in HiL simulators"
+          />
+          <LogoShowcase
+            image="/website-current/images/about/kongsberg-logo.png"
+            image_alt="Kongsberg Logo"
+            url="https://www.kongsbergautomotive.com/"
+            text="Global supplier of mobility solutions"
+          />
+          <LogoShowcase
+            image="/website-current/images/about/surrey-logo.png"
+            image_alt="University of Surrey Logo"
+            url="https://www.surrey.ac.uk/"
+            text="Leading research-intensive higher education institution"
+          />
         </div>
-    </div>
-  </Section>
-</div>
-<div class="section">
-  <Section>
-    <div class="section-content">
-      <h2 class="section-title">Supported by</h2>
+      </div>
+    </Section>
+  </div>
+  <div class="section">
+    <Section>
+      <div class="section-content">
+        <h2 class="section-title">Supported by</h2>
         <div class="list">
-          <LogoShowcase image="/website-current/images/about/Innovate-UK-Logo.jpeg" image_alt="Innovate UK Logo" url="https://www.ukri.org/councils/innovate-uk/" text="Business development and commercialisation"/>
-          <LogoShowcase image="/website-current/images/about/EU-Logo.png" image_alt="European Union Logo" url="https://eic.ec.europa.eu/eic-funding-opportunities/eic-accelerator_en" text="Co-founded by the European Union"/>
+          <LogoShowcase
+            image="/website-current/images/about/Innovate-UK-Logo.jpeg"
+            image_alt="Innovate UK Logo"
+            url="https://www.ukri.org/councils/innovate-uk/"
+            text="Business development and commercialisation"
+          />
+          <LogoShowcase
+            image="/website-current/images/about/EU-Logo.png"
+            image_alt="European Union Logo"
+            url="https://eic.ec.europa.eu/eic-funding-opportunities/eic-accelerator_en"
+            text="Co-founded by the European Union"
+          />
         </div>
-    </div>
-  </Section>
+      </div>
+    </Section>
   </div>
 
   <style>
-  .section {
-    min-height: 40vh;
-    padding-bottom: 2em;
-  }
+    .section {
+      min-height: 40vh;
+      padding-bottom: 2em;
+    }
 
-  .title-section {
-    margin-bottom: 3em;
-  }
-
-  .list {
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    gap: 1vw;
-    overflow: hidden;
-  }
-
-  .section-title {
-    margin-bottom: 5vh;
-  }
-
-  @media screen and (max-width: 1000px) {
+    .title-section {
+      margin-bottom: 3em;
+    }
 
     .list {
-      margin-top: 1.5em;
-      flex-flow: column;
-      gap: 2em;
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+      gap: 1vw;
+      overflow: hidden;
     }
-  }
 
+    .section-title {
+      margin-bottom: 5vh;
+    }
+
+    @media screen and (max-width: 1000px) {
+      .list {
+        margin-top: 1.5em;
+        flex-flow: column;
+        gap: 2em;
+      }
+    }
   </style>
 </MainLayout>
