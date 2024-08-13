@@ -27,6 +27,9 @@ interface Props {
 
 const { vacancy } = Astro.props;
 const { Content } = await vacancy.render();
+
+const mail_key = import.meta.env.EMAIL_KEY;
+const current_path = Astro.url + "#form";
 ---
 
 <VacancyLayout title={vacancy.data.role}>
@@ -40,7 +43,20 @@ const { Content } = await vacancy.render();
     <div class="content">
       <Content />
     </div>
-    <form class="form" id="contact-form">
+    <form
+      class="form"
+      id="form"
+      action="https://api.web3forms.com/submit"
+      method="POST"
+    >
+      <input type="hidden" name="access_key" value={mail_key} />
+      <input type="hidden" name="redirect" value={current_path} />
+      <input
+        type="checkbox"
+        name="botcheck"
+        class="hidden"
+        style="display: none;"
+      />
       <div class="form-content">
         <div class="form-header">
           <h4 class="form-title">Apply now</h4>
@@ -48,7 +64,13 @@ const { Content } = await vacancy.render();
         </div>
         <div class="form-item">
           <label for="name" class="form-label">Name *</label>
-          <input class="input" type="text" name="name" placeholder="John Doe" />
+          <input
+            class="input"
+            type="text"
+            name="name"
+            placeholder="John Doe"
+            required
+          />
         </div>
         <div class="form-item">
           <label for="email" class="form-label">Email *</label>
@@ -57,6 +79,7 @@ const { Content } = await vacancy.render();
             type="email"
             name="email"
             placeholder="yourname@email.com"
+            required
           />
         </div>
         <div class="form-item">
@@ -69,10 +92,23 @@ const { Content } = await vacancy.render();
           />
         </div>
         <div class="form-item">
-          <label for="resume" class="form-label">Resume</label>
-          <input class="input" type="file" name="resume" accept=".pdf" />
+          <label for="resume" class="form-label">Resume *</label>
+          <input
+            class="input"
+            type="file"
+            name="resume"
+            accept=".pdf"
+            required
+          />
         </div>
-        <div class="form-item"></div>
+        <div class="form-item">
+          <label for="cover-letter" class="form-label">Cover letter</label>
+          <textarea
+            class="input"
+            name="cover-letter"
+            placeholder="Your cover letter here"
+            rows="4"></textarea>
+        </div>
         <button type="submit" class="submit"
           >Submit <Icon name="akar-icons:paper-airplane" /></button
         >

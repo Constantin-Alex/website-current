@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@iconify-json/akar-icons": "^1.1.24",
+    "@iconify-json/dashicons": "^1.1.10",
     "@iconify-json/fluent": "^1.1.59",
     "@iconify-json/game-icons": "^1.1.9",
     "@iconify-json/mdi": "^1.1.67",

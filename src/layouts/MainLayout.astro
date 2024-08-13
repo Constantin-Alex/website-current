@@ -23,11 +23,16 @@ const { title } = Astro.props;
   <body>
     <Navbar />
     <div class="spacer"></div>
-    <slot />
+    <div class="content">
+      <slot />
+    </div>
     <Footer />
     <style>
       .spacer {
         height: 75px;
+      }
+      .content {
+        min-height: calc(100vh - 500px);
       }
     </style>
   </body>

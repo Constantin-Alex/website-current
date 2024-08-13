@@ -3,6 +3,9 @@ import { Icon } from "astro-icon/components";
 
 import Section from "../components/Section.astro";
 import MainLayout from "../layouts/MainLayout.astro";
+
+const mail_key = import.meta.env.EMAIL_KEY;
+const current_path = Astro.url + "#form";
 ---
 
 <MainLayout title="Chassis Autonomy - Contact">
@@ -10,7 +13,20 @@ import MainLayout from "../layouts/MainLayout.astro";
     <Section>
       <div class="section-content">
         <div class="section-left">
-          <form class="form" id="contact-form">
+          <form
+            class="form"
+            id="form"
+            action="https://api.web3forms.com/submit"
+            method="POST"
+          >
+            <input type="hidden" name="redirect" value={current_path} />
+            <input type="hidden" name="access_key" value={mail_key} />
+            <input
+              type="checkbox"
+              name="botcheck"
+              class="hidden"
+              style="display: none;"
+            />
             <div class="form-content">
               <div class="form-header">
                 <h4 class="form-title">Contact form</h4>

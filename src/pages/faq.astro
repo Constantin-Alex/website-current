@@ -1,15 +1,34 @@
 ---
 import Section from "../components/Section.astro";
+import Question from "../components/Question.astro";
+import Separator from "../components/Separator.astro";
 import MainLayout from "../layouts/MainLayout.astro";
+
+import faq from "../content/details/faq.json";
 ---
 
 <MainLayout title="Chassis Autonomy - FAQ">
   <Section>
     <h1 class="title">Frequently asked question</h1>
   </Section>
-  <Section>
-    <p>test</p>
-    <p>test</p>
-    <p>test</p>
-  </Section>
+  <div class="questions">
+    <Section>
+      <div class="questions-content">
+        {
+          faq.map((question) => (
+            <Question title={question.question} description={question.answer} />
+          ))
+        }
+      </div>
+    </Section>
+  </div>
+
+  <style>
+    .questions-content {
+      display: flex;
+      flex-flow: column;
+      gap: 10px;
+      margin-bottom: 50px;
+    }
+  </style>
 </MainLayout>
